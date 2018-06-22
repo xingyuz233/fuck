@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30876ac1-6a64-476a-8c4a-692c11b46a1c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/controller/KeyController.js" afterPath="$PROJECT_DIR$/client/src/js/controller/KeyController.js" />
       <change beforePath="$PROJECT_DIR$/client/src/js/main.js" afterPath="$PROJECT_DIR$/client/src/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/role/player.js" afterPath="$PROJECT_DIR$/client/src/js/role/player.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/ui.js" afterPath="$PROJECT_DIR$/client/src/js/ui.js" />
-      <change beforePath="$PROJECT_DIR$/server/app.js" afterPath="$PROJECT_DIR$/server/app.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,12 +38,13 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+            <state relative-caret-position="421">
+              <caret line="599" column="54" lean-forward="false" selection-start-line="599" selection-start-column="54" selection-end-line="599" selection-end-column="54" />
               <folding>
                 <element signature="e#95#134#0" expanded="true" />
                 <element signature="n#!!block;n#initScene#0" expanded="false" />
                 <element signature="n#!!block;n#initLight#0" expanded="false" />
+                <element signature="e#3214#8581#0" expanded="false" />
                 <element signature="n#!!block;n#initSky#0" expanded="false" />
                 <element signature="n#!!block;n#initController#0" expanded="false" />
               </folding>
@@ -123,12 +119,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/bean/player.js">
+      <file leaf-file-name="weapon.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/js/role/weapon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="507">
+              <caret line="113" column="5" lean-forward="false" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+              <folding>
+                <element signature="n#!!block;n#cloneFbx#0;n#Weapon#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,8 +144,8 @@
       <file leaf-file-name="player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/js/role/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="405" column="9" lean-forward="true" selection-start-line="405" selection-start-column="9" selection-end-line="405" selection-end-column="9" />
+            <state relative-caret-position="218">
+              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="16" />
               <folding>
                 <element signature="e#1553#1587#0" expanded="false" />
                 <element signature="n#!!block;n#setPosition#0;n#Player#0" expanded="false" />
@@ -169,7 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>3000</find>
       <find>playDe</find>
       <find>gameMap.show</find>
       <find>scoreBoa</find>
@@ -199,6 +196,7 @@
       <find>sort</find>
       <find>KEY_I</find>
       <find>minute</find>
+      <find>die</find>
     </findStrings>
     <replaceStrings>
       <replace>static/models/maps/dust2/textures</replace>
@@ -645,12 +643,12 @@
       <workItem from="1529495232765" duration="5723000" />
       <workItem from="1529568463788" duration="18102000" />
       <workItem from="1529591796177" duration="11542000" />
-      <workItem from="1529616146114" duration="14025000" />
+      <workItem from="1529616146114" duration="15088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455507000" />
+    <option name="totallyTimeSpent" value="456570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="46" width="1433" height="930" extended-state="0" />
@@ -952,16 +950,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/js/role/weapon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="113" column="5" lean-forward="false" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!block;n#cloneFbx#0;n#Weapon#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/UI.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -1015,18 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/js/role/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="405" column="9" lean-forward="true" selection-start-line="405" selection-start-column="9" selection-end-line="405" selection-end-column="9" />
-          <folding>
-            <element signature="e#1553#1587#0" expanded="false" />
-            <element signature="n#!!block;n#setPosition#0;n#Player#0" expanded="false" />
-            <element signature="n#!!block;n#kill#0;n#Player#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/js/role/gameMap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1061,14 +1037,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/js/role/weapon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="113" column="5" lean-forward="false" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!block;n#cloneFbx#0;n#Weapon#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/js/role/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="e#1553#1587#0" expanded="false" />
+            <element signature="n#!!block;n#setPosition#0;n#Player#0" expanded="false" />
+            <element signature="n#!!block;n#kill#0;n#Player#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+        <state relative-caret-position="421">
+          <caret line="599" column="54" lean-forward="false" selection-start-line="599" selection-start-column="54" selection-end-line="599" selection-end-column="54" />
           <folding>
             <element signature="e#95#134#0" expanded="true" />
             <element signature="n#!!block;n#initScene#0" expanded="false" />
             <element signature="n#!!block;n#initLight#0" expanded="false" />
+            <element signature="e#3214#8581#0" expanded="false" />
             <element signature="n#!!block;n#initSky#0" expanded="false" />
             <element signature="n#!!block;n#initController#0" expanded="false" />
           </folding>

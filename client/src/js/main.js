@@ -587,16 +587,18 @@ socket.on('hit', function (data) {
 
 socket.on('hit', data => {
     console.log(socket.id + ' suffered from' + data.socketid + ' for ' + data.damage);
-    player.hp -= data.damage;
-    ui.hurt("front");
-    ui.setLife(player.hp);
-    console.log(socket.id + ' left ' + player.hp + ' hp');
-    if (player.hp <= 0) {
-        player.die(scene, gameMap);
-        console.log(socket.id + ' was killed by ' + data.socketid);
+    if (player.hp > 0) {
+        player.hp -= data.damage;
+        ui.hurt("front");
+        ui.setLife(player.hp);
+        console.log(socket.id + ' left ' + player.hp + ' hp');
+        if (player.hp <= 0) {
+            player.die(scene, gameMap);
+            console.log(socket.id + ' was killed by ' + data.socketid);
 
 
-        socket.emit('die', {'socketid': data.socketid});
+            socket.emit('die', {'socketid': data.socketid});
+        }
     }
 });
 
