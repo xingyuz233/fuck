@@ -4,7 +4,7 @@ import {Player} from "../role/player";
 
 export class MouseController {
 
-    constructor(player, scene) {
+    constructor(player, scene, ui) {
         // let camera = player.camera;
         // let yawObject = player.model;
         // camera.rotation.set(0, 0, 0);
@@ -31,6 +31,8 @@ export class MouseController {
 
         this.enabled = false;
         this.press = false;
+        this.ui = ui;
+
         this.bind();
         this.setSelfView();
     }
@@ -122,7 +124,7 @@ export class MouseController {
                                 damage = this.player.rifle.damage * 3;
                             }
                         } else {
-                            damage = 0;
+                            damage = 10;
                         }
                         this.player.socket.emit('hit', {
                             'playerid': playerid,
@@ -137,6 +139,8 @@ export class MouseController {
                 }
             }
         }
+
+        this.ui.hit();
 
     }
 
@@ -211,7 +215,6 @@ export class MouseController {
                 scope.viewPlayer.visible = true;
             }
             scope.viewPlayer = scope.viewPlayer.getNextLivePlayer();
-            scope.viewPlayer.visible = false;
             scope.scene.camera = scope.viewPlayer.camera;
         }, 3000);
     }

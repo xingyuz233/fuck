@@ -44,7 +44,9 @@ io.on('connection', function (socket) {
     socket.on('addPlayerSuccess', data => {
         console.log(socketid+ ' received '+ data.socketid+' and added it.');
         let player = Player.get(socketid);
-        socketMap.get(data.socketid).emit('addPlayerSuccess', player.toObject());
+        if (player) {
+            socketMap.get(data.socketid).emit('addPlayerSuccess', player.toObject());
+        }
     });
     // Update Player's Status
     socket.on('updatePlayer', data => {
@@ -88,8 +90,12 @@ io.on('connection', function (socket) {
     socket.on('die', data => {
         console.log('Player ' + socketid + ' was killed by Player ' + data.socketid + '.');
         io.emit('die', {'killed': socketid, 'killer': data.socketid});
-        Player.get(data.socketid).kill();
-        Player.get(socketid).die();
+        if (Player.get(data.socketid)) {
+            Player.get(data.socketid).kill();
+        }
+        if (Player.get(socketid)) {
+            Player.get(socketid).die();
+        }
 
         if (Player.getLiveCounterTerrorists().length === 0) {
             terroristWin();
@@ -155,11 +161,17 @@ function counterTerroristWin() {
 function resetAll() {
     io.emit('resetAll');
     let roundTime = 150000;
-    let interval = 10000;
+    let interval = 1000;
     roundTimeSetter = setInterval(function(){
         roundTime -= interval;
-        console.log(roundTime /1000 + " second left");
+
+        if (roundTime % 10000 === 0) {
+            console.log(roundTime / 1000 + " second left");
+        }
+        io.emit("timer", roundTime / 1000);
+
         if (roundTime <= 0) {
+            clearInterval(roundTimeSetter);
             roundTimeout();
         }
     }, interval);

@@ -15,6 +15,7 @@ import {Player} from "./role/player";
 import {Weapon, Rifle, Knife} from "./role/weapon";
 import {GameMap} from "./role/gameMap";
 
+import {UI} from "./ui";
 
 let clock;
 
@@ -37,8 +38,9 @@ let instructions;
 let player;
 
 let gameMap;
+let ui;
 
-const connectionUrl = "http://120.79.227.127:3000";
+const connectionUrl = "http://http://120.79.227.127:3000";
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
@@ -62,6 +64,8 @@ initPointerLock();
 function initElement() {
     blocker = document.getElementById('blocker');
     instructions = document.getElementById('instructions');
+    ui = new UI();
+
 }
 
 function initClock() {
@@ -401,7 +405,7 @@ function initPointerLock() {
             } else {
                 mouseController.enabled = false;
                 blocker.style.display = 'block';
-                instructions.style.display = '';
+                //instructions.style.display = '';
             }
         };
 
@@ -417,7 +421,7 @@ function initPointerLock() {
         document.addEventListener('mozpointerlockerror', pointerlockerror, false);
         document.addEventListener('webkitpointerlockerror', pointerlockerror, false);
         instructions.addEventListener('click', function (event) {
-            instructions.style.display = 'none';
+            //instructions.style.display = 'none';
             //全屏
             //launchFullScreen(renderer.domElement);
             // 锁定鼠标光标
@@ -489,8 +493,8 @@ socket.on('init', data => {
 
         player.model.visible = false;
         scene.add(player.model);
-        mouseController = new MouseController(player, scene);
-        keyController = new KeyController(player, scene);
+        mouseController = new MouseController(player, scene, ui);
+        keyController = new KeyController(player, scene, ui);
         collisionController = new CollisionController(keyController, scene);
         animate();
         console.log("initial finished!");
@@ -584,6 +588,7 @@ socket.on('hit', function (data) {
 socket.on('hit', data => {
     console.log(socket.id + ' suffered from' + data.socketid + ' for ' + data.damage);
     player.hp -= data.damage;
+    ui.setLife(player.hp);
     console.log(socket.id + ' left ' + player.hp + ' hp');
     if (player.hp <= 0) {
         player.die(scene, gameMap);
@@ -604,11 +609,18 @@ socket.on('roundOver', data => {
     console.log(data.info);
     Player.terroristWins = data.terroristWins;
     Player.counterTerroristWins = data.counterTerroristWins;
+    ui.setRed_remain(data.terroristWins);
+    ui.setBlue_remain(data.counterTerroristWins);
 });
 
 socket.on('resetAll', data => {
     Player.resetAll();
+    ui.setLife(player.hp);
+});
 
+socket.on('timer', data => {
+    console.log(data);
+   ui.setTime(data/60, data%60);
 });
 socket.on('connect', function () {
     console.log('Connected');

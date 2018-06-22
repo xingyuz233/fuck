@@ -18,6 +18,8 @@ const KEY_M = 77;
 
 //游戏功能
 const KEY_ESC = 27;
+const KEY_TAB = 9;
+const KEY_I = 73;
 
 //基本游戏参数
 const RUN_SPEED = 40;
@@ -30,7 +32,7 @@ const GRAVITATION_ACCELERATION = 100;
 import { Player } from "../role/player";
 export class KeyController {
 
-    constructor(player, scene) {
+    constructor(player, scene, ui) {
 
         this.moveForward = false;
         this.moveBackward = false;
@@ -44,6 +46,7 @@ export class KeyController {
 
         this.player = player;
         this.status = player.status;
+        this.ui = ui;
         this.bind();
         this.setSelfView();
     }
@@ -96,6 +99,9 @@ export class KeyController {
                     'rifle': 'm4a1'
                 });
                 break;
+
+            case KEY_I:
+                this.ui.TabBoard.showTabBoard();
         }
 
     }
@@ -136,6 +142,9 @@ export class KeyController {
             case KEY_SHIFT: /*SHIFT*/
                 this.run = false;
                 break;
+
+            case KEY_I:
+                this.ui.closeTabBoard();
 
 
         }
