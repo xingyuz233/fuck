@@ -168,13 +168,13 @@ function resetAll() {
 
         if (roundTime % 10000 === 0) {
             console.log(roundTime / 1000 + " second left");
+            if (roundTime <= 0) {
+                clearInterval(roundTimeSetter);
+                roundTimeout();
+            }
         }
 
-        if (roundTime <= 0) {
-            clearInterval(roundTimeSetter);
-            roundTime = 150000;
-            roundTimeout();
-        }
+
     }, interval);
     Player.resetAll();
 }
