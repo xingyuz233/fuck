@@ -40,7 +40,7 @@ let player;
 let gameMap;
 let ui;
 
-const connectionUrl = "http://http://120.79.227.127:3000";
+const connectionUrl = "http://120.79.227.127:3000";
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
@@ -588,6 +588,7 @@ socket.on('hit', function (data) {
 socket.on('hit', data => {
     console.log(socket.id + ' suffered from' + data.socketid + ' for ' + data.damage);
     player.hp -= data.damage;
+    ui.hurt("front");
     ui.setLife(player.hp);
     console.log(socket.id + ' left ' + player.hp + ' hp');
     if (player.hp <= 0) {
@@ -620,7 +621,7 @@ socket.on('resetAll', data => {
 
 socket.on('timer', data => {
     console.log(data);
-   ui.setTime(data/60, data%60);
+   ui.setTime(Math.floor(data/60), data%60);
 });
 socket.on('connect', function () {
     console.log('Connected');

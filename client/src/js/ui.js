@@ -196,22 +196,32 @@ export class UI {
     }
 
     printPlayerInfo(terrororistList, counterrororistList) {
-        for(let i=0;i<terrororistList.length;i++){
-            let player=terrororistList[i];
+        console.log(terrororistList);
+        console.log(counterrororistList);
+        for(let i=0;i<counterrororistList.length;i++){
+            let player=counterrororistList[i];
             console.log(player);
             let playerInfo=document.getElementById("player"+i);
             playerInfo.children[0].innerHTML=player.name;
-            playerInfo.children[1].innerHTML=player.status;
+            if (player.status) {
+                playerInfo.children[1].innerHTML="DEAD";
+            } else {
+                playerInfo.children[1].innerHTML="";
+            }
             playerInfo.children[2].innerHTML=player.kills;
             playerInfo.children[3].innerHTML=player.dies;
         }
 
-        for (let i=0; i < counterrororistList.length; i++) {
-            let player=counterrororistList[i];
+        for (let i=0; i < terrororistList.length; i++) {
+            let player=terrororistList[i];
             console.log(player);
             let playerInfo=document.getElementById("player"+(i+5));
             playerInfo.children[0].innerHTML=player.name;
-            playerInfo.children[1].innerHTML=player.status;
+            if (player.status) {
+                playerInfo.children[1].innerHTML="DEAD";
+            } else {
+                playerInfo.children[1].innerHTML="";
+            }
             playerInfo.children[2].innerHTML=player.kills;
             playerInfo.children[3].innerHTML=player.dies;
         }

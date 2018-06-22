@@ -392,6 +392,21 @@ export class Player {
         return lives;
     }
 
+    static getSortedTerrorists() {
+        let list = [];
+        for (let value of Player.terroristMap.values()) {
+            list.push(value);
+        }
+        return list;
+    }
+    static getSortedCounterTerrorists() {
+        let list = [];
+        for (let value of Player.counterTerroristMap.values()) {
+            list.push(value);
+        }
+        return list;
+    }
+
     static getDeadTerrorists() {
         let lives = [];
         for (let value of Player.terroristMap.values()) {

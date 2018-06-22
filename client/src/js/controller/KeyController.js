@@ -47,6 +47,8 @@ export class KeyController {
         this.player = player;
         this.status = player.status;
         this.ui = ui;
+
+        this.showTabBoard = false;
         this.bind();
         this.setSelfView();
     }
@@ -101,7 +103,9 @@ export class KeyController {
                 break;
 
             case KEY_I:
-                this.ui.TabBoard.showTabBoard();
+                this.ui.printPlayerInfo(Player.getSortedTerrorists(), Player.getSortedCounterTerrorists());
+                this.ui.showTabBoard();
+                break;
         }
 
     }
@@ -144,7 +148,10 @@ export class KeyController {
                 break;
 
             case KEY_I:
+
+
                 this.ui.closeTabBoard();
+                break;
 
 
         }

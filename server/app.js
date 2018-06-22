@@ -164,14 +164,15 @@ function resetAll() {
     let interval = 1000;
     roundTimeSetter = setInterval(function(){
         roundTime -= interval;
+        io.emit("timer", roundTime / 1000);
 
         if (roundTime % 10000 === 0) {
             console.log(roundTime / 1000 + " second left");
         }
-        io.emit("timer", roundTime / 1000);
 
         if (roundTime <= 0) {
             clearInterval(roundTimeSetter);
+            roundTime = 150000;
             roundTimeout();
         }
     }, interval);
