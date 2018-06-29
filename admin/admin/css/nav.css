@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+
+html { cursor: default;}
+h1, h2, h3, h4, h5, h6,p, li, label, td, th {cursor: text;}
+a:link, a:visited, a:hover, a:active { cursor: pointer;}
+body{box-sizing: border-box;width:100%;margin:0; padding:0; font-size:14px; font-family:"微软雅黑",Arial, Helvetica, sans-serif;background-color: #fff;color: #333;}
+div,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,input,select,textarea,table,td{ margin:0; padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+area{outline:none;}
+img{ border:0;outline: none;}
+ol,ul{list-style:none;}
+a{ font-family:"微软雅黑",Arial, Helvetica, sans-serif;text-decoration:none;outline:none;}
+a:hover{ text-decoration:none;}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 1024px)  {
+    body{
+        min-width: 1230px;
+    }
+}
+.navbox{position:relative;width: 100%;/* height: 329px; */min-width: 1230px;border-top: 2px solid #6b9ac8;background: #111521;}
+.nav{width: 1230px;height: 80px;margin: 0 auto;position: relative;}
+.logo{width: 134px;height: 64px;margin-right: 100px;padding: 8px 0 8px 23px;float: left;}
+.logo a{width: 100%;height: 64px;display: block;}
+.logo a img{height: 100%;display: block;}
+.nav_list{padding-top: 20px;float: left;}
+.nav_list a{height: 57px;margin: 0 25px;display: block;color: #fff;font-size: 18px;position: relative;float: left;}
+.nav_list a p{font-size: 10px;cursor: pointer;font-size: 12px;}
+.nav_list a h4{cursor: pointer;font-size: 16px;}
+.nav_list a span{width: 100%;height: 3px;position: absolute;top: 100%;left: 0;background: #3b92e6;display: none;}
+.nav_list a.on,.nav_list a:hover{border-bottom: 3px solid #566e95;}
+
+.topbar2 {
+    width: 160px;
+    white-space:nowrap;
+    background: none;
+    line-height: 1.4;
+    position: absolute;
+    top: 30px;
+    right: -3%;
+}
+
+.topbar2 span{
+    float: left;
+}
+.topbar2.in p,.topbar2.out p{
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+}
+.topbar2.in a{
+    height: 20px;
+    margin: 0 0 0 8px;
+    float: left;
+    font-size: 14px;
+    display: inline;
+    color: #566e95;
+}
+.topbar2 .log_out span{
+    float: left;
+    max-width: 122px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+.topbar2.in .log_out{
+    display: none;
+}
+.topbar2.in .log_out img{
+    float: left;
+    height: 40px;
+    width: 40px;
+    top:-20%;
+    position: absolute;
+    border-radius:20px;
+    margin-right: 20px;
+}
+.topbar2.in .log_in{
+    display: block;
+}
+.log_out em{
+    margin-left: 45px;
+    width: 100%;
+    font-style: normal;
+}
+
+.topbar2 .log_out{
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+}

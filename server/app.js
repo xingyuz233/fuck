@@ -89,7 +89,7 @@ io.on('connection', function (socket) {
 
     socket.on('die', data => {
         console.log('Player ' + socketid + ' was killed by Player ' + data.socketid + '.');
-        io.emit('die', {'killed': socketid, 'killer': data.socketid});
+        io.emit('die', {'killed': socketid, 'killer': data.socketid, 'bodyPart': data.bodyPart, 'hitDirection': data.hitDirection});
         if (Player.get(data.socketid)) {
             Player.get(data.socketid).kill();
         }

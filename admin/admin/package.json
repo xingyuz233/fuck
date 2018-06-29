@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "fps-game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xingyuz233/fps-game.git"
+  },
+  "author": "xingyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xingyuz233/fps-game/issues"
+  },
+  "homepage": "https://github.com/xingyuz233/fps-game#readme",
+  "dependencies": {
+    "socket.io": "^2.1.0"
+  },
+  "devDependencies": {}
+}

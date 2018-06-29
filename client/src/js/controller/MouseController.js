@@ -100,7 +100,7 @@ export class MouseController {
         console.log(this.player.model.position);
         let hitRaycaster = new THREE.Raycaster(srcPos, camera.getWorldDirection(new THREE.Vector3(0,0,0)), 0, MAX_HIT_DISTANCE);
         let collisionResults = hitRaycaster.intersectObjects(scene.children, true);
-        let damage = 10;
+        let damage = 5;
         console.log(collisionResults);
         if (collisionResults.length > 0) {
             for (let i = 0; i < collisionResults.length; i++) {
@@ -112,24 +112,26 @@ export class MouseController {
                     let playerid = collisionResults[i].object.parent.parent.playerid;
                     let player = Player.get(playerid);
                     if (player.status === Player.LIVE) {
-                        if (collisionResults[i].object.name === 'Soldier_body') {
-                            console.log("hit the body!");
-                            console.log(this.player.rifle);
-                            if (this.player.rifle) {
-                                damage = this.player.rifle.damage;
-                            }
-                        } else if (collisionResults[i].object.name === 'Solider_head'){
+                        let bodyPart;
+                        if (collisionResults[i].object.name === 'Boy01_Head_Geo' ||
+                            collisionResults[i].object.name === 'Boy01_Hair_Geo') {
                             console.log("hit the head!");
+                            bodyPart = "head";
+                            console.log(this.player.rifle);
                             if (this.player.rifle) {
                                 damage = this.player.rifle.damage * 3;
                             }
                         } else {
-                            damage = 10;
+                            console.log("hit the head!");
+                            bodyPart = "body";
+                            if (this.player.rifle) {
+                                damage = this.player.rifle.damage;
+                            }
                         }
                         this.player.socket.emit('hit', {
                             'playerid': playerid,
                             'damage': damage,
-                            'bodyPart': collisionResults[i].name
+                            'bodyPart': bodyPart
                         });
                         console.log("hit " + playerid + " for " + damage + " hp ");
                     }

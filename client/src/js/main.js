@@ -40,7 +40,7 @@ let player;
 let gameMap;
 let ui;
 
-const connectionUrl = "http://120.79.227.127:3000";
+const connectionUrl = "http://localhost:3000";
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
@@ -472,7 +472,7 @@ socket.on('init', data => {
     console.log(data);
 
     //let camp = (data.terroristNum <= data.counterTerroristNum)? Player.TERRORIST_CAMP: Player.COUNTERTERRORIST_CAMP;
-    let camp = data.terroristNum <= data.counterTerroristNum? Player.TERRORIST_CAMP: Player.COUNTERTERRORIST_CAMP;
+    let camp = Player.TERRORIST_CAMP;
     let name = "xingyu";
     let index = (camp === Player.TERRORIST_CAMP) ? data.terroristNum : data.counterTerroristNum;
 
@@ -588,16 +588,19 @@ socket.on('hit', function (data) {
 socket.on('hit', data => {
     console.log(socket.id + ' suffered from' + data.socketid + ' for ' + data.damage);
     if (player.hp > 0) {
-        player.hp -= data.damage;
-        ui.hurt("front");
-        ui.setLife(player.hp);
-        console.log(socket.id + ' left ' + player.hp + ' hp');
-        if (player.hp <= 0) {
-            player.die(scene, gameMap);
-            console.log(socket.id + ' was killed by ' + data.socketid);
-
-
-            socket.emit('die', {'socketid': data.socketid});
+        let hitter = Player.get(data.socketid);
+        if (hitter) {
+            let hitDirection = player.directionFrom(hitter);
+            console.log(hitDirection);
+            ui.hurt(hitDirection);
+            player.hp -= data.damage;
+            ui.setLife(player.hp);
+            console.log(socket.id + ' left ' + player.hp + ' hp');
+            if (player.hp <= 0) {
+                player.die(data.bodyPart, hitDirection);
+                console.log(socket.id + ' was killed by ' + data.socketid);
+                socket.emit('die', {'socketid': data.socketid, 'bodyPart':data.bodyPart, 'hitDirection':hitDirection });
+            }
         }
     }
 });
@@ -605,6 +608,7 @@ socket.on('hit', data => {
 socket.on('die', data => {
     Player.get(data.killer).kill();
     Player.get(data.killed).die();
+
     //右上角显示杀敌信息
 });
 

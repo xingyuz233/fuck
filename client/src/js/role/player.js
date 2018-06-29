@@ -236,15 +236,65 @@ export class Player {
         }
     }
 
-    die() {
+    die(bodyPart, hitDirection) {
         this.dies++;
         this.status = Player.DEAD;
-        this.playDeathAction("DeathFromTheFront");
+        if (bodyPart === 'head') {
+            if (hitDirection === 'back') {
+                this.playDeathAction("DeathFromBackHeadshot");
+            } else {
+                this.playDeathAction("DeathFromFrontHeadshot");
+            }
+        } else {
+            if (hitDirection === 'back') {
+                this.playDeathAction("DeathFromTheBack");
+            } else {
+                this.playDeathAction("DeathFromTheFront");
+            }
+        }
 
 
         //this.reset();
         //this.hp = 100;
     }
+
+    directionFrom(player) {
+
+        let diffDirection = new THREE.Vector3();
+
+        diffDirection.subVectors(player.model.position, this.model.position);
+
+        let cameraFrontDirection = this.camera.getWorldDirection();
+        cameraFrontDirection.y = 0;
+        cameraFrontDirection = cameraFrontDirection.normalize();
+        let cameraRightDirection = new THREE.Vector3();
+        cameraRightDirection.crossVectors(cameraFrontDirection, new THREE.Vector3(0,1,0));
+
+        let viewDirection = new THREE.Vector3(
+            diffDirection.dot(cameraRightDirection),
+            0,
+            diffDirection.dot(cameraFrontDirection)
+        );
+
+        if (Math.abs(viewDirection.x) > Math.abs(viewDirection.z)) {
+            if (viewDirection.x < 0) {
+                return "left";
+            } else {
+                return "right"
+            }
+        } else {
+            if (viewDirection.z < 0) {
+                return "back";
+            }
+            else {
+                return "front";
+            }
+        }
+
+
+
+    }
+
 
     reset() {
         this.status = Player.LIVE;

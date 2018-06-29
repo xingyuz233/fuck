@@ -1,6 +1,11 @@
 import * as THREE from "three";
 import * as MTLLoader from "../loader/MTLLoader";
 import * as OBJLoader from "../loader/OBJLoader";
+
+import {Player} from "./player";
+
+//let FBXLoader = require('three-fbxloader-offical');
+
 export class GameMap {
     constructor() {
 
@@ -95,6 +100,7 @@ export class GameMap {
             this.setModel(null);
         }
         this.setTerroristArea(-100, -50, -160, -100, 0);
+        //this.setTerroristArea(150,150,0,0,400);
         this.setCounterTerroristArea(90, 140, -760, -680, -45);
         this.setAsiteArea(255,300,-755,-725);
         this.setBsiteArea(194,255,-832,-765);
@@ -112,6 +118,19 @@ export class GameMap {
                 scope.setModel(object);
             });
         });
+
+        // let loader = new FBXLoader;
+        // loader.load('static/models/maps/dust2/de_dust2.fbx', function (object) {
+        //     object.scale.set(0.2,0.2,0.2);
+        //     console.log(object);
+        //     object.traverse( function ( child ) {
+        //         if ( child.isMesh ) {
+        //             child.castShadow = true;
+        //             child.receiveShadow = true;
+        //         }
+        //     } );
+        //     scene.add(object);
+        // });
 
     }
 
