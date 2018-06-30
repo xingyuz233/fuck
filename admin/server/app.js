@@ -1,12 +1,15 @@
 const Koa = require('koa');
+const socketio = require('socket.io');
 const app = new Koa();
-
 const server = app.listen(3000);
-const io = require('socket.io').listen(server);
+const io = socketio.listen(server);
+
 
 let Room = require("./bean/room");
 let User = require("./bean/user");
+
 const roomlist = new Map();
+let socketList = new Map();
 
 
 // Socket.io
@@ -16,6 +19,7 @@ io.sockets.on('connection', function (socket) {
     let name = "user";
     let avatarid = 1;
     let user = new User(socketid, name, avatarid);
+    socketList.set(socketid, socket);
     //let player = new Player()
     console.log("log in " + socketid);
     console.log("now we have these rooms: " +Room.roomListToJson());
@@ -167,10 +171,38 @@ io.sockets.on('connection', function (socket) {
         console.log('User ' + socket.id + ' disconnected.\n');
         Room.removePlayer(socket.id);
         User.userList.delete(socket.id);
+        socketList.delete(socket.id);
         socket.broadcast.emit('offline', {
             'socketid': socket.id,
         });
     });
+
+
+    //游戏部分
+    socket.on('startGame', data => {
+        console.log("room "+data.roomid+" requests for starting game");
+        io.emit('startGame', data);
+        // let room = Room.roomList.get(data.roomid);
+        // if (room) {
+        //     for (let value of room.side1) {
+        //         let socket = socketList.get(value);
+        //         if (socket) {
+        //             socket.emit('startGame', data);
+        //         }
+        //     }
+        //     for (let value of room.side2) {
+        //         let socket = socketList.get(value);
+        //         if (socket) {
+        //             socket.emit('startGame', data);
+        //         }
+        //     }
+        // }
+    });
+
+    socket.on('joinGame', data => {
+        console.log(data.socketid +" requests for joining game");
+        io.emit('joinGame', data);
+    })
 });
 
 

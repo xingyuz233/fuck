@@ -1,7 +1,7 @@
 
 const Koa = require('koa');
 const app = new Koa();
-    const server = app.listen(3001);
+    const server = app.listen(3002);
     const io = require('socket.io').listen(server);
 
     let Player = require("./bean/player");

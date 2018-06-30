@@ -1,4 +1,5 @@
-//import { Room } from "room.js";
+
+
 
 let socket = io.connect("http://localhost:3000");
 let name = "user";
@@ -7,9 +8,16 @@ let roomlist = new Map();
 let roomid = -1;
 let stateWord = ["等待开始", "游戏中"];
 let stateClass = ["prepare", "ready"];
-
+let maps = ["炙热沙城"];
 let leaveBtn = document.getElementById("leave");
 let swapBtn = document.getElementById("swap");
+
+let createRoomBtn = document.getElementById("createRoom");
+createRoomBtn.onclick = function () {
+    createRoom();
+};
+
+let startBtn = document.getElementById("start");
 
 // socket.on("add_list", data => {
 //     console.log(data);
@@ -77,7 +85,6 @@ socket.on("createRoom", data => {
     if (roomObj.hostid === socket.id) {
         entry(roomObj.roomid);
     }
-
 });
 
 socket.on("joinRoom", data => {
@@ -171,6 +178,49 @@ socket.on("remove_room", data => {
     }
 );
 
+socket.on("startGame", data => {
+    let user = User.userList.get(socket.id);
+    let room = Room.roomList.get(data.roomid);
+    let inRoom = false;
+    if (room) {
+        for (let value of room.side1) {
+            let player = User.userList.get(value);
+            player.status = 1;
+            if (value === socket.id) {
+                inRoom = true;
+            }
+        }
+        for (let value of room.side2) {
+            let player = User.userList.get(value);
+            player.status = 1;
+            if (value === socket.id) {
+                inRoom = true;
+            }
+        }
+    }
+    if (inRoom) {
+        localStorage.setItem("name", user.name);
+        localStorage.setItem("camp", user.side);
+        console.log("ready to fly to map 9000");
+        window.open("http://localhost:9000");
+    }
+});
+
+socket.on("joinGame", data => {
+   console.log("joining game, loading...");
+   let room = Room.roomList.get(data.roomid);
+   let joiner = User.userList.get(data.socketid);
+   if (room && joiner) {
+       joiner.status = 1;
+       if (data.socketid === socket.id) {
+           localStorage.setItem("name", joiner.name);
+           localStorage.setItem("camp", joiner.camp);
+           console.log("ready to fly to map 9000");
+           window.open("http://localhost:9000");
+       }
+   }
+});
+
 function scroll_roomlist() {
     var roomlist = Room.roomList;
     console.log(roomlist);
@@ -188,8 +238,31 @@ function scroll_roomlist() {
 
     for (let value of Room.roomList.values()) {
         console.log(value);
-        $("#room_list").append("<tr onclick='joinRoom(" + value.roomid + ")'><th>" + value.roomid + "</></th><th>" + (value.getSide1()+value.getSide2())+"/"+value.capacity*2 + "</th><th>" +
-            value.getMapId() + "</th><th>" + value.getState() + "</th></tr>");
+        // $("#room_list").append("<tr onclick='joinRoom(" + value.roomid + ")'><th>" + value.roomid + "</th><th>" + (value.getSide1()+value.getSide2())+"/"+value.capacity*2 + "</th><th>" +
+        //     value.getMapId() + "</th><th>" + value.getState() + "</th></tr>");
+
+        let tr = document.createElement("tr");
+        tr.onclick = ()=>joinRoom(value.roomid);
+
+        let th1 = document.createElement("th");
+        th1.innerHTML = value.roomid;
+
+        let th2 = document.createElement("th");
+        th2.innerHTML = (value.getSide1()+value.getSide2())+"/"+value.capacity*2;
+
+        let th3 = document.createElement("th");
+        th3.innerHTML = maps[value.getMapId()];
+
+        let th4 = document.createElement("th");
+        th4.innerHTML = stateWord[value.getState()];
+
+        tr.appendChild(th1);
+        tr.appendChild(th2);
+        tr.appendChild(th3);
+        tr.appendChild(th4);
+
+        document.getElementById("room_list").appendChild(tr);
+
     }
 }
 
@@ -205,7 +278,7 @@ function entry(roomid) {
     let room = Room.roomList.get(roomid);
 
     document.getElementById("host").innerHTML = room.hostid;
-    document.getElementById("mapid").innerHTML = room.getMapId();
+    document.getElementById("mapid").innerHTML = maps[room.getMapId()];
 
     swapBtn.onclick = function () {
         swapSide(roomid);
@@ -213,6 +286,33 @@ function entry(roomid) {
     leaveBtn.onclick = function () {
         leave(roomid);
     };
+
+    startBtn.onclick = null;
+    if (room.getState() === 1) {
+        startBtn.innerText = "加入游戏";
+
+        startBtn.onclick = function () {
+            socket.emit("joinGame", {
+                socketid: socket.id,
+                roomid: roomid
+            });
+        };
+    } else if (room.hostid === socket.id){
+        startBtn.innerText = "开始游戏";
+        startBtn.onclick = function () {
+            socket.emit("startGame", {
+                roomid: roomid
+            });
+        };
+    } else {
+        startBtn.innerText = "等待开始"
+    }
+
+    // startBtn.onclick = function () {
+    //     socket.emit("startGame", {
+    //         roomid: roomid
+    //     });
+    // };
     // $("#swap").click(function () {
     //    swapSide(roomid);
     // });
@@ -256,6 +356,7 @@ function createRoom() {
     // // socket.emit("addRoom", {
     // //     "roomid": roomid,
     // // });
+    console.log(socket);
     socket.emit("createRoom", {});
     // this.roomid = roomid;
 }
@@ -343,3 +444,19 @@ function r() {
     $("#logIn").css("display", "none");
     $("#register").css("display", "block");
 }
+//
+// function displayGameUI() {
+//     navbox_div.style.display = "none";
+//     container_div.style.display = "none";
+//     log_window.style.display = "none";
+//     register_div.style.display = "none";
+//     blocker.style.display = "block";
+// }
+//
+// function displayAdminUI() {
+//     navbox_div.style.display = "block";
+//     container_div.style.display = "block";
+//     log_window.style.display = "none";
+//     register_div.style.display = "none";
+//     blocker.style.display = "none";
+// }

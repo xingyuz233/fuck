@@ -72,16 +72,15 @@
     <div class="hall">
         <p class="title">房间列表</p>
         <table id="room_list">
-
+            <tr><th>房间号</th><th>人数</th><th>地图</th><th>状态</th></tr>
         </table>
         <table id="room_table">
             <tr>
                 <th>
-                    <div onclick="createRoom()">创建房间</div>
+                    <button id="createRoom">创建房间</button>
 
                 </th>
-                <td><input id="create_room" type="text" autofocus>
-                </td>
+
             </tr>
             <!--
             <tr>
@@ -118,13 +117,9 @@
                 </ul>
             </figure>
             <figure class="side">
-                <div id="leave">退出房间</div>
-                <div id="swap">更换阵营</div>
-                <!--
-                <div id="addside2" onclick="add(2)">加入SIDE 2</div>
-                !-->
-                <div onclick="setMap()" id="choose">选择地图</div>
-                <input id="choose_map" type="text" autofocus>
+                <button id="start">开始游戏</button>
+                <button id="leave">退出房间</button>
+                <button id="swap">更换阵营</button>
             </figure>
         </section>
     </div>

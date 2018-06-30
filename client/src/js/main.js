@@ -40,7 +40,14 @@ let player;
 let gameMap;
 let ui;
 
-const connectionUrl = "http://localhost:3000";
+let roomid = localStorage.getItem('roomid');
+/*
+if (roomid === null ){
+    window.location.href = "http://localhost:8080";
+}
+*/
+
+const connectionUrl = "http://localhost:"+(3001+roomid);
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 

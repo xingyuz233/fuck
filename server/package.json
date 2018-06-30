@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start1": "node app.js",
+    "start2": "node app2.js",
+    "start3": "node app3.js",
+    "start4": "node app4.js"
   },
   "keywords": [],
   "author": "",

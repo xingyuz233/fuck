@@ -1,8 +1,7 @@
 
 const Koa = require('koa');
 const app = new Koa();
-for (let i = 1; i <= 4; i++) {
-    const server = app.listen(3000 + i);
+    const server = app.listen(3001);
     const io = require('socket.io').listen(server);
 
     let Player = require("./bean/player");
@@ -184,7 +183,6 @@ for (let i = 1; i <= 4; i++) {
 
         }, interval);
         Player.resetAll();
-    }
 }
 /*
 // response

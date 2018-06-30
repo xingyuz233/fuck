@@ -2,9 +2,10 @@
 background: url(../img/gamedownload_bg.jpg);
     padding: 50px;
     height: 576px;
-
 }
 .hall{
+/*    display: none;*/
+    margin-left: 450px;
     float: left;
     height: 550px;
     width: 500px;
@@ -13,13 +14,14 @@ background: url(../img/gamedownload_bg.jpg);
     border-radius: 10px;
 }
 .hall #room_list{
+    font-size: 1.3em;
     padding: 20px;
-    height: 360px;
     color: white;
 }
 
-#room_list li{
-    padding: 5px;
+#room_list th{
+    font-weight: normal;
+    padding: 15px;
 }
 .title{
     padding-left: 20px;
@@ -29,26 +31,29 @@ background: url(../img/gamedownload_bg.jpg);
     font-family: "微软雅黑", Arial, Helvetica, sans-serif;
 }
 #room_table{
-    padding-left: 50px;
+    position: absolute;
+    left: 600px;
+    bottom: 120px;
 }
-#room_table th div{
-    padding: 0 30px;
+#room_table th button{
+    padding: 7px 25px;
+    border-radius: 5px;
     background: coral;
 }
 #room_table td{
     padding: 10px 0 ;
 }
 .room{
-    margin-left: 100px;
+    display: none;
+    margin-left: 220px;
     padding: 10px;
     color: white;
     float: left;
     height: 550px;
-    width: 770px;
+    width: 950px;
     background: rgba(20,20,20, 0.75);
     border-radius: 10px;
 }
-
 .side ul li {
     display:block;
 }
@@ -57,14 +62,19 @@ background: url(../img/gamedownload_bg.jpg);
     display: inline-block;
     vertical-align:middle;
 }
-
+.side .name{
+    width: 100px;
+}
 .side {
     display: inline-block;
     float:left;
 }
 
-.side div{
+.side button{
     display: block;
+}
+.side input{
+    width: 35px;
 }
 
 #start{
@@ -76,8 +86,17 @@ background: url(../img/gamedownload_bg.jpg);
 #leave,#swap,#choose{
     margin: 10px;
     padding: 10px 45px;
-    background-color: rgba(55,150,180,.5);
+    background-color: rgba(55,150,180,.7);
     border-radius: 5px;
+}
+#choose{
+    margin: 10px;
+    padding: 10px 25px;
+    background-color: rgba(55,150,180,.7);
+    border-radius: 5px;
+}
+button{
+    border: none;
 }
 #player{
     padding-left: 10px;
@@ -99,13 +118,13 @@ background: url(../img/gamedownload_bg.jpg);
 
 #player .ready{
     padding: 5px 5px;
-    background: rgba(127,225,212,0.7);
+    background: rgba(127,225,212,0.9);
     border-radius: 3px;
 }
 
 #player .prepare{
     padding: 5px 5px;
-    background: rgba(233,150,122,0.7);
+    background: rgba(233,150,122,0.9);
 }
 #log_window{
     display: none;
