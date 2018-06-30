@@ -40,14 +40,21 @@ let player;
 let gameMap;
 let ui;
 
-let roomid = localStorage.getItem('roomid');
-/*
-if (roomid === null ){
-    window.location.href = "http://localhost:8080";
-}
-*/
+let roomid = window.localStorage.getItem("roomid");
+let camp = window.localStorage.getItem("camp");
+let name = window.localStorage.getItem("name");
 
-const connectionUrl = "http://localhost:"+(3001+roomid);
+
+// if (roomid === null ){
+//     window.location.href = "http://localhost:8080";
+// }
+
+console.log(roomid);
+console.log(camp);
+console.log(name);
+let port = 3001+Number(roomid);
+console.log("connect port "+port);
+const connectionUrl = "http://localhost:"+port;
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
@@ -479,9 +486,9 @@ socket.on('init', data => {
     console.log(data);
 
     //let camp = (data.terroristNum <= data.counterTerroristNum)? Player.TERRORIST_CAMP: Player.COUNTERTERRORIST_CAMP;
-    let camp = Player.TERRORIST_CAMP;
-    let name = "xingyu";
-    let index = (camp === Player.TERRORIST_CAMP) ? data.terroristNum : data.counterTerroristNum;
+    // let camp = Player.TERRORIST_CAMP;
+    // let name = "xingyu";
+    // let index = (camp === Player.TERRORIST_CAMP) ? data.terroristNum : data.counterTerroristNum;
 
     // player.socketid = socket.id;
     // player.index = index;
@@ -490,6 +497,7 @@ socket.on('init', data => {
     // player.setBornPosition(gameMap);
 
     //
+    let index = (camp === Player.TERRORIST_CAMP) ? data.terroristNum : data.counterTerroristNum;
 
     player = new Player(socket.id, name, camp, index);
     player.socket = socket;
@@ -566,6 +574,10 @@ socket.on('offline', playerInfo => {
     if (offlinePlayer) {
         scene.remove(offlinePlayer.model);
     }
+
+    window.localStorage.removeItem("roomid");
+    window.localStorage.removeItem("name");
+    window.localStorage.removeItem("camp");
 });
 /*
 socket.on('bullet', function (bullet) {
@@ -634,6 +646,7 @@ socket.on('roundOver', data => {
 
 socket.on('resetAll', data => {
     Player.resetAll();
+    player.visible = false;
     ui.setLife(player.hp);
 });
 

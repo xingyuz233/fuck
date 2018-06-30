@@ -16,6 +16,7 @@ let createRoomBtn = document.getElementById("createRoom");
 createRoomBtn.onclick = function () {
     createRoom();
 };
+console.log(typeof window.localStorage);
 
 let startBtn = document.getElementById("start");
 
@@ -80,6 +81,8 @@ socket.on("createRoom", data => {
     let roomObj = JSON.parse(data);
     console.log(roomObj);
     let room = new Room(roomObj.roomid, roomObj.hostid);
+    //房主初始边为匪徒
+    User.userList.get(roomObj.hostid).side = 0;
     console.log(roomObj.hostid + "create a room "+room);
     scroll_roomlist();
     if (roomObj.hostid === socket.id) {
@@ -121,13 +124,15 @@ socket.on("swapSide", data => {
 });
 
 socket.on("leave", data => {
-    let room = Room.roomList.get(data.roomid);
+    //let room = Room.roomList.get(data.roomid);
     let user = User.userList.get(data.socketid);
-    if (room && room.has(data.socketid)) {
-        if (room.removePlayer(data.socketid)) {
-            Room.roomList.delete(roomid);
-        }
-    }
+    let room = Room.removePlayer(data.socketid);
+    // if (room && room.has(data.socketid)) {
+    //     if (room.removePlayer(data.socketid)) {
+    //         Room.roomList.delete(roomid);
+    //     }
+    // }
+    user.side = -1;
 
    //Room.removePlayer(data.socketid);
     if (room && room.has(socket.id)) {
@@ -135,7 +140,6 @@ socket.on("leave", data => {
     } else if (User.userList.get(socket.id).side === -1) {
         scroll_roomlist();
     }
-    user.side = -1;
 });
 
 socket.on("offline", data => {
@@ -183,6 +187,7 @@ socket.on("startGame", data => {
     let room = Room.roomList.get(data.roomid);
     let inRoom = false;
     if (room) {
+        room.status = 1;
         for (let value of room.side1) {
             let player = User.userList.get(value);
             player.status = 1;
@@ -199,10 +204,16 @@ socket.on("startGame", data => {
         }
     }
     if (inRoom) {
-        localStorage.setItem("name", user.name);
-        localStorage.setItem("camp", user.side);
+        window.localStorage.setItem("name", user.name);
+        window.localStorage.setItem("camp", user.side);
+        window.localStorage.setItem("roomid", room.roomid);
+        console.log(window.localStorage.getItem("name"));
+        console.log(window.localStorage.getItem("camp"));
+        console.log(window.localStorage.getItem("roomid"));
         console.log("ready to fly to map 9000");
-        window.open("http://localhost:9000");
+        setTimeout(function () {
+            window.open("http://localhost:9000");
+        }, 2000)
     }
 });
 
@@ -213,8 +224,9 @@ socket.on("joinGame", data => {
    if (room && joiner) {
        joiner.status = 1;
        if (data.socketid === socket.id) {
-           localStorage.setItem("name", joiner.name);
-           localStorage.setItem("camp", joiner.camp);
+           window.localStorage.setItem("roomid", room.roomid);
+           window.localStorage.setItem("name", joiner.name);
+           window.localStorage.setItem("camp", joiner.camp);
            console.log("ready to fly to map 9000");
            window.open("http://localhost:9000");
        }
