@@ -11,8 +11,8 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: "./src/index.html"
+            filename: "game.html",
+            template: "./src/game.html"
         })
     ],
     output: {

@@ -1,321 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Let's shoot</title>
+    <meta charset="utf-8">
+    <title>Counter-Strike: Global Offensive</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
 
-    <style type="text/css">
-        html, body {
-            margin: 0;
-            height: 100%;
-        }
-        canvas {
-            display: block;
-        }
-        #blocker {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.0);
-        }
-        #instructions {
-            width: 100%;
-            height: 100%;
-            display: -webkit-box;
-            display: -moz-box;
-            display: box;
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            box-orient: horizontal;
-            -webkit-box-pack: center;
-            -moz-box-pack: center;
-            box-pack: center;
-            -webkit-box-align: center;
-            -moz-box-align: center;
-            box-align: center;
-            color: #ffffff;
-            text-align: center;
-            cursor: pointer;
-        }
-        .tableList{
-            color: white;
-        }
-        .playerInfo{
-            height: 60px;
-        }
-        #messages{
-            color:white;
-            font-size: 15px;
-
-        }
-        #messages p{
-            margin: 0 auto;
-        }
-        .killMessage{
-            margin: 0 auto;
-        }
-        .killMessage p{
-            display: flow;
-            margin:0 auto;
-        }
-        #killMessageBox{
-            margin:0 auto;
-            color:white;
-        }
-        img{
-            margin: 0;
-        }
-        #table_out{
-            margin: 0px;
-        }
-
-    </style>
 </head>
 <body>
-<div id="blocker">
-    <div id="instructions">
+<div class="navbox">
+    <div class="nav">
 
-    <table width="1000px" id="table_out" style="position:absolute">
-    <tbody>
-    <tr>
-        <td height="200px"  id="leftBox">
+        <div class="nav_list">
+            <a href="">
+                <span></span>
+                <h4>首页</h4>
+                <p>HOME</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>游戏介绍</h4>
+                <p>INTRODUCTION</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>新手教程</h4>
+                <p>TUTORIAL</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>宣传视频</h4>
+                <p>VIDEOS</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>玩家排行</h4>
+                <p>RANKLIST</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>经典战役</h4>
+                <p>BATTLE</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>战绩统计</h4>
+                <p>STATISTICS</p>
+            </a>
 
-
-            <img id="MapContainer" height="178" width="162"/></td>
-        <td  id="scoreBoard" class="midBox" style="position:relative">
-
-            <img height="164" width="599" id="scoreBoardBackground" style="position:relative"/>
-            <img height="100" width="300" id="win-image" style="position:absolute" />
-
-            <p id="scoreRed" style="position:relative;bottom:160px;right:180px;">
-
-                <img height="50" width="17" id="redRemain_0"/>
-                <img height="50" width="26" id="redRemain_1"/>
+        </div>
+        <div class="topbar2 in">
+            <p class="log_in">
+                <span>请</span>
+                <a class="log_btn">
+                    <div id="btn_log_in" onclick="f_log_btn()">登录</div>
+                </a>
             </p>
-            <p id="scoreBlue" style="position:relative;bottom:230px;left:180px;" >
-                <img height="50" width="17" id="blueRemain_0"/>
-                <img height="50" width="26" id="blueRemain_1"/>
+            <p class="log_out">
+                <img src="img/user1.png">
+                <span><em class="userName" id="J_navuserName">chy,</em></span>
+                <span class="log_btn">
+	          <a href="javascript:;" class="btn_log_out">退出登陆</a>
+	        </span>
             </p>
-            <p id="time" style="position:absolute;left: 388px;bottom: 250px">
-                <img height="33" width="17" id="minute1"/>
-                <img height="33" width="17" id="minute2"/>
-                <img id="separator" height="28" width="13"/>
-                <img height="33" width="17" id="second1"/>
-                <img height="33" width="17" id="second2"/>
-            </p>
-            
+        </div>
+    </div>
 
-
-        </td>
-        <td  class="rightBox" style="text-align: center;position: relative;">
-            <div id="killMessageBox" style="position: relative;">
-                <div class="killMessage" style="visibility: hidden">
-                    <p>111
-                        <img id="kill1" height="30" width="30"/>
-                        111</p>
-                </div>
-                <div class="killMessage" style="visibility: hidden">
-                    <p>jzf
-                        <img id="kill2" height="30" width="30"/>
-                        hahaha</p>
-                </div>
-                <div class="killMessage" style="visibility: hidden">
-                    <p>hahaha
-                        <img id="kill3" height="30" width="30"/>
-                        lalala</p>
-                </div>
-            </div>
-
-        </td>
-    </tr>
-    <tr>
-        <td height="200px" >
-
-        </td>
-        <td >
-
-        </td>
-        <td >
-
-        </td>
-    </tr>
-    <tr>
-        <td height="200px" >
-            <div id="HPBoard">
-
-                <img id="hpimg" height="46" width="48.5"/>
-                <p id="HP">
-                    <img height="50" width="17" id="HP_0"/>
-                    <img height="50" width="26" id="HP_1"/>
-                    <img height="50" width="26" id="HP_2"/>
-                </p>
-            </div>
-
-        </td>
-        <td style="position: relative">
-            <div id="messageBox" style="text-align: center;position: relative;">
-
-                <img id="messagesBoard" height="200" width="864" style="position:relative;top:15px"/>
-                <input type="text" name="message" id="messageInput"  style="position: relative; width:864px;height: 20px"/>
-            </div>
-            <div id="messages" style="position: absolute;bottom:35px;left: 30px">
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
-
-            </div>
-
-        </td>
-        <td >
-
-        </td>
-    </tr>
-
-    </tbody>
-</table>
-<div id="gun" style="position:absolute;right: 0;bottom: 0">
-
-    <img id="gunimg" width="530" height="360"/>
 </div>
-<div id="damage" style="position:absolute">
 
-    <img height="500" width="500" style="position:absolute;opacity:0" id="damage_right"/>
-    <img height="500" width="500"style="position:absolute;opacity:0" id="damage_left"/>
-    <img height="500" width="500"style="position:absolute;opacity:0" id="damage_front"/>
-    <img height="500" width="500"style="position:absolute;opacity:0" id="damage_back"/>
-</div>
-<div style="position:absolute" id="post">
-    <img id="postimg" height="20" width="20"/>
-</div>
-<div id="TabBoard" style="position:absolute">
-    <img id="tabBoardimg" height="800" width="800" style="position:absolute" />
-    <table style="position: absolute;text-align: center" width="700" class="tableList">
-        <tr style="" >
-            <td id="playerName" width="400" height="80"  bgcolor="aqua">玩家名</td>
-            <td id="alive" width="100"bgcolor="red">存活</td>
-            <td id="kill" width="100"  bgcolor="black">击杀</td>
-            <td id="death" width="100"  bgcolor="#7fffd4">死亡</td>
-        </tr>
-        <tr id="player0" class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player1"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player2"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player3"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player4"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr class="playerInfo"></tr>
-        <tr id="player5"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+<div class="container">
+    <div class="hall">
+        <p class="title">房间列表</p>
+        <table id="room_list">
+            <tr><th>房间号</th><th>人数</th><th>地图</th><th>状态</th></tr>
+        </table>
+        <table id="room_table">
+            <tr>
+                <th>
+                    <button id="createRoom">创建房间</button>
 
-        <tr id="player6"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player7"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player8"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player9"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+                </th>
 
-    </table>
+            </tr>
+            <!--
+            <tr>
+                <th>
+                    <div onclick="joinRoom()">加入房间</div>
 
-        <!--
-        <span style="font-size:40px">点击屏幕开始</span>
+                </th>
+                <td><input id="join_room" type="text" autofocus>
+                </td>
+            </tr>
+            -->
+        </table>
 
-        <br />
+    </div>
+    <div class="room">
+        <p class="title">房间：<span id="roomid">-</span></p>
+        <p class="title">房主：<span id="host">-</span></p>
+        <p class="title">游戏地图：<span id="mapid">-</span></p>
+        <section id="player">
+            <figure class="side">
+                <p>SIDE 1</p>
+                <ul id="side1">
+                    <li><img src="img/user1.png"><span class="name">robot1</span><span class="ready">准备</span></li>
+                    <li><img src="img/user1.png"><span class="name">robot1</span><span class="prepare">未准备</span></li>
+                    <li><img src="img/user1.png"><span class="name">robot1</span><span class="ready">准备</span></li>
+                </ul>
+            </figure>
 
-        <br />
-
-        (W, A, S, D = 移动, SPACE = 跳跃, MOUSE = 移动视角)
-        -->
+            <figure class="side">
+                <p>SIDE 2</p>
+                <ul id="side2">
+                    <li><img src="img/user1.png"><span class="name">robot2</span><span class="ready">准备</span></li>
+                    <li><img src="img/user2.png"><span class="name">robot2</span><span class="ready">准备</span></li>
+                </ul>
+            </figure>
+            <figure class="side">
+                <button id="start">开始游戏</button>
+                <button id="leave">退出房间</button>
+                <button id="swap">更换阵营</button>
+            </figure>
+        </section>
     </div>
 </div>
 
+<div id="log_window">
+    <a class="close" onclick="f_close_log_window()">X</a>
+    <div id="logIn">
+        <img src="img/user2.png">
 
-<!--
-<div id="blocker">
-    <div id="instructions">
+        <form>
+            <table>
+                <tr>
+                    <th>用户名</th>
+                    <td>
+                        <input id="username" type="text" autofocus>
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td>
+                        <input id="password" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label class="checkbox">
+                            <input type="checkbox" value="remember-me">记住密码
+                        </label>
+                    </td>
+                </tr>
 
-        <span style="font-size:40px">点击屏幕开始</span>
 
-        <br />
+            </table>
+            <input class="btn" type="button" value="登陆" onclick="">
 
-        <br />
+        </form>
 
-        (W, A, S, D = 移动, SPACE = 跳跃, MOUSE = 移动视角)
+        <a onclick="r()">没有账号，去注册>></a>
     </div>
+    <div id="register">
+        <form>
+            <table>
+                <tr>
+                    <th>用户名</th>
+                    <td>
+                        <input id="name" type="text" autofocus>
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td>
+                        <input id="pass" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <th>确认密码</th>
+                    <td>
+                        <input id="confirm" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <th>头像</th>
+                    <td>
+                        <input type="radio" name="radiobutton" value="user1" checked>
+                        <img src="img/user1.png">
+                        <input type="radio" name="radiobutton" value="user2">
+                        <img src="img/user2.png"></td>
+                </tr>
+            </table>
+            <input class="btn" type="button" value="注册" onclick="">
+        </form>
+    </div>
+
 </div>
--->
-<!--
-<script src="js/three/three.js"></script>
-<script src="js/stats/stats.js"></script>
 
+<div class="register"></div>
 
-<script src="js/loader/inflate.min.js"></script>
-<script src="js/loader/OBJLoader.js"></script>
-<script src="js/loader/MTLLoader.js"></script>
-<script src="js/loader/FBXLoader.js"></script>
-<script src="js/loader/ColladaLoader.js"></script>
-
-
-<script src="js/physijs/physi.js"></script>
-
-<script src="js/controller/CollisionController.js"></script>
-<script src="js/controller/MouseController.js"></script>
-<script src="js/controller/KeyController.js"></script>
-
-<script src="js/model/player.js"></script>
-
-<script src="js/main.js"></script>
--->
-</div>
-<script type="text/javascript" src="app.bundle.js"></script></body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="js/user.js"></script>
+<script src="js/room.js"></script>
+<script src="js/login.js"></script>
+</body>
 </html>

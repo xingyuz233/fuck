@@ -16,26 +16,32 @@ let socketList = new Map();
 io.sockets.on('connection', function (socket) {
     // Create Player's ID
     let socketid = socket.id;
-    let name = "user";
-    let avatarid = 1;
-    let user = new User(socketid, name, avatarid);
-    socketList.set(socketid, socket);
-    //let player = new Player()
-    console.log("log in " + socketid);
-    console.log("now we have these rooms: " +Room.roomListToJson());
-    socket.emit('initRoomList', Room.roomListToJson());  //将所有roomList信息 传给 新加入的用户 用于初始化
-    socket.emit('initUserList', User.userListToJson());
-    socket.broadcast.emit('addUser', user.toJson());            //将新用户的信息传给其他 用户，告诉他们将该用户 加入 用户列表里面。
-    /*
-    for (let i = 0;i< roomlist.keys().length;i++){
-        let key = roomlist.keys()[i];
-        socket.emit("change_room", {
-            "roomid": key,
-            "roomdata": roomlist.get(key).getInfo()
-        });
-        console.log("change_room: " + key+" "+roomlist.get(key).getInfo());
-    }
-    */
+
+    socket.emit('who');
+
+    socket.on('name', data => {
+        let name = data.name;
+        let avatarid = 1;
+        let user = new User(socketid, name, avatarid);
+        socketList.set(socketid, socket);
+        //let player = new Player()
+        console.log("log in " + socketid);
+        console.log("now we have these rooms: " +Room.roomListToJson());
+        socket.emit('initRoomList', Room.roomListToJson());  //将所有roomList信息 传给 新加入的用户 用于初始化
+        socket.emit('initUserList', User.userListToJson());
+        socket.broadcast.emit('addUser', user.toJson());            //将新用户的信息传给其他 用户，告诉他们将该用户 加入 用户列表里面。
+        /*
+        for (let i = 0;i< roomlist.keys().length;i++){
+            let key = roomlist.keys()[i];
+            socket.emit("change_room", {
+                "roomid": key,
+                "roomdata": roomlist.get(key).getInfo()
+            });
+            console.log("change_room: " + key+" "+roomlist.get(key).getInfo());
+        }
+        */
+    });
+
 
     socket.on('createRoom', data => {
         let roomid = Room.getFreeRoomId();

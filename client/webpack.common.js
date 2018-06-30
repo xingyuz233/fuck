@@ -14,8 +14,8 @@ module.exports = {
             to: './static'
         }]),
         new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: "./src/index.html"
+            filename: "game.html",
+            template: "./src/game.html"
         })
     ],
     module: {

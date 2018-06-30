@@ -41,13 +41,14 @@ let gameMap;
 let ui;
 
 let roomid = window.localStorage.getItem("roomid");
-let camp = window.localStorage.getItem("camp");
+let camp = Number(window.localStorage.getItem("camp"));
 let name = window.localStorage.getItem("name");
 
 
-// if (roomid === null ){
-//     window.location.href = "http://localhost:8080";
-// }
+if (roomid === null ){
+    window.location.href = "";
+}
+roomid = Number(window.localStorage.getItem("roomid"));
 
 console.log(roomid);
 console.log(camp);
