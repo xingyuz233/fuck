@@ -21,6 +21,8 @@ import png_post from '../../static/image/post.png';
 import png_ScoreBoard from '../../static/image/ScoreBoard.png';
 import png_separator from '../../static/image/separator.png';
 import png_TabBoard from '../../static/image/TabBoard.png';
+import png_terrorist_win from '../../static/image/terrorist-win.png';
+import png_counterterrorist_win from '../../static/image/counter-terrorist-win.png';
 
 export class UI {
     constructor () {
@@ -56,6 +58,9 @@ export class UI {
         this.damage_front=document.getElementById("damage_front");
         this.damage_back=document.getElementById("damage_back");
         this.time=document.getElementById("time");
+
+        this.win_image=document.getElementById("win-image");
+        this.win_image.style.display = "none";
 
         this.gunimg = document.getElementById("gunimg");
         this.gunimg.src = png_gun;
@@ -188,8 +193,8 @@ export class UI {
 
     showMessageBoard() {
         this.messageBox.style.visibility="visible";
-
     }
+
     closeMessageBoard() {
         this.messageBox.style.visibility="hidden";
 
@@ -348,6 +353,25 @@ export class UI {
             }
         }, 20);
 
+    }
+
+    terroristWin() {
+        let scope = this;
+        scope.win_image.src = png_terrorist_win;
+        scope.win_image.style.display = "block";
+        setTimeout(function () {
+            scope.win_image.style.display = "none";
+        },2000);
+    }
+
+    counterTerroristWin() {
+        let scope = this;
+        scope.win_image.src = png_counterterrorist_win;
+        scope.win_image.style.display = "block";
+
+        setTimeout(function () {
+            scope.win_image.style.display = "none";
+        },2000);
     }
 
 }

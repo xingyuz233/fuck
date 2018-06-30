@@ -39,16 +39,16 @@ background: url(../img/gamedownload_bg.jpg);
     padding: 10px 0 ;
 }
 .room{
+    margin-left: 100px;
+    padding: 10px;
     color: white;
     float: left;
     height: 550px;
-    width: 700px;
+    width: 770px;
     background: rgba(20,20,20, 0.75);
     border-radius: 10px;
 }
-.room div{
-    float: left;
-}
+
 .side ul li {
     display:block;
 }
@@ -63,9 +63,25 @@ background: url(../img/gamedownload_bg.jpg);
     float:left;
 }
 
+.side div{
+    display: block;
+}
+
+#start{
+    margin: 30px 10px 20px 10px;
+    padding: 10px 45px;
+    background-color: rgba(235,95,0,0.7);
+    border-radius: 5px;
+}
+#leave,#swap,#choose{
+    margin: 10px;
+    padding: 10px 45px;
+    background-color: rgba(55,150,180,.5);
+    border-radius: 5px;
+}
 #player{
-    padding-left: 50px;
-    padding-top: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
 
 }
 

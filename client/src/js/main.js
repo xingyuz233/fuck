@@ -616,6 +616,11 @@ socket.on('roundOver', data => {
     console.log(data.info);
     Player.terroristWins = data.terroristWins;
     Player.counterTerroristWins = data.counterTerroristWins;
+    if (data.info === 'terrorist win') {
+         ui.terroristWin();
+    } else {
+        ui.counterTerroristWin()
+    }
     ui.setRed_remain(data.terroristWins);
     ui.setBlue_remain(data.counterTerroristWins);
 });

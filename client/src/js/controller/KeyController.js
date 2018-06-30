@@ -20,6 +20,7 @@ const KEY_M = 77;
 const KEY_ESC = 27;
 const KEY_TAB = 9;
 const KEY_I = 73;
+const KEY_O = 43;
 
 //基本游戏参数
 const RUN_SPEED = 40;
@@ -106,6 +107,9 @@ export class KeyController {
                 this.ui.printPlayerInfo(Player.getSortedTerrorists(), Player.getSortedCounterTerrorists());
                 this.ui.showTabBoard();
                 break;
+
+            case KEY_O:
+                this.ui.showMessageBoard();
         }
 
     }
@@ -152,7 +156,8 @@ export class KeyController {
 
                 this.ui.closeTabBoard();
                 break;
-
+            case KEY_O:
+                this.ui.closeMessageBoard();
 
         }
 
