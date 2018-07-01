@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="30876ac1-6a64-476a-8c4a-692c11b46a1c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/admin/admin/index.html" afterPath="$PROJECT_DIR$/admin/admin/index.html" />
-      <change beforePath="$PROJECT_DIR$/admin/admin/js/login.js" afterPath="$PROJECT_DIR$/admin/admin/js/login.js" />
-      <change beforePath="$PROJECT_DIR$/client/dist/js/login.js" afterPath="$PROJECT_DIR$/client/dist/js/login.js" />
+      <change beforePath="$PROJECT_DIR$/admin/admin/css/style.css" afterPath="$PROJECT_DIR$/admin/admin/css/style.css" />
+      <change beforePath="$PROJECT_DIR$/client/dist/css/style.css" afterPath="$PROJECT_DIR$/client/dist/css/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,51 +88,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/admin/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="307" column="13" lean-forward="true" selection-start-line="307" selection-start-column="13" selection-end-line="307" selection-end-column="13" />
+            <state relative-caret-position="4572">
+              <caret line="308" column="9" lean-forward="true" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/app.js">
+      <file leaf-file-name="nav.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/admin/css/nav.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
-              <caret line="176" column="31" lean-forward="true" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
+            <state relative-caret-position="315">
+              <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server_login_register/app.js">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/admin/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            <state relative-caret-position="210">
+              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/dist/game.html">
+      <file leaf-file-name="nav.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/dist/css/nav.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server_login_register/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-258">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/dist/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -151,12 +150,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>swat</find>
       <find>scene</find>
       <find>log_out</find>
       <find>register_request</find>
       <find>log_in</find>
-      <find>local</find>
       <find>delete</find>
       <find>localS</find>
       <find>300</find>
@@ -181,6 +178,8 @@
       <find>3000</find>
       <find>joinRoom</find>
       <find>localhost</find>
+      <find>local</find>
+      <find>nav</find>
     </findStrings>
     <replaceStrings>
       <replace>static/models/maps/dust2/textures</replace>
@@ -200,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/js/controller/CollisionController.js" />
         <option value="$PROJECT_DIR$/client/js/controller/KeyController.js" />
         <option value="$PROJECT_DIR$/client/models/maps/dust2/dust2_color.mtl" />
         <option value="$PROJECT_DIR$/client/js/main.js" />
@@ -243,7 +241,6 @@
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/admin/admin/js/user.js" />
         <option value="$PROJECT_DIR$/admin/server/app.js" />
-        <option value="$PROJECT_DIR$/admin/admin/css/style.css" />
         <option value="$PROJECT_DIR$/admin/admin/js/register.js" />
         <option value="$PROJECT_DIR$/client/src/js/main.js" />
         <option value="$PROJECT_DIR$/server_login_register/app.js" />
@@ -251,6 +248,8 @@
         <option value="$PROJECT_DIR$/client/dist/js/login.js" />
         <option value="$PROJECT_DIR$/admin/admin/index.html" />
         <option value="$PROJECT_DIR$/admin/admin/js/login.js" />
+        <option value="$PROJECT_DIR$/admin/admin/css/style.css" />
+        <option value="$PROJECT_DIR$/client/dist/css/style.css" />
       </list>
     </option>
   </component>
@@ -330,19 +329,6 @@
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="fps-game" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fps-game" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fps-game" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -362,6 +348,13 @@
               <item name="fps-game" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fps-game" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
@@ -631,12 +624,12 @@
       <workItem from="1530356545625" duration="5824000" />
       <workItem from="1530363179740" duration="3787000" />
       <workItem from="1530368622701" duration="11940000" />
-      <workItem from="1530411500620" duration="14201000" />
+      <workItem from="1530411500620" duration="14456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="555172000" />
+    <option name="totallyTimeSpent" value="555427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="201" y="167" width="1451" height="802" extended-state="0" />
@@ -722,8 +715,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/admin/app.js" />
-    <entry file="file://$PROJECT_DIR$/admin1/admin/js/login.js" />
     <entry file="file://$PROJECT_DIR$/admin/server/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -901,22 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/admin/css/nav.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/admin/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1105,8 +1080,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/admin/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="307" column="13" lean-forward="true" selection-start-line="307" selection-start-column="13" selection-end-line="307" selection-end-column="13" />
+        <state relative-caret-position="4572">
+          <caret line="308" column="9" lean-forward="true" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/admin/css/nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/admin/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/dist/css/nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-258">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/dist/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
           <folding />
         </state>
       </provider>

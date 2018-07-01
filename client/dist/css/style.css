@@ -4,7 +4,7 @@ background: url(../img/gamedownload_bg.jpg);
     height: 576px;
 }
 .hall{
-/*    display: none;*/
+    display: none;
     margin-left: 450px;
     float: left;
     height: 550px;
