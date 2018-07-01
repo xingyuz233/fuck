@@ -647,7 +647,7 @@ socket.on('roundOver', data => {
 
 socket.on('resetAll', data => {
     Player.resetAll();
-    player.visible = false;
+    player.model.visible = false;
     ui.setLife(player.hp);
 });
 
