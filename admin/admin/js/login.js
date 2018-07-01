@@ -1,7 +1,7 @@
 
 
 
-let socket = io.connect("http://localhost:3000");
+let socket = null;//io.connect("http://localhost:3000");
 let name = "user";
 let avatarid = 1;
 let roomlist = new Map();
@@ -17,6 +17,25 @@ createRoomBtn.onclick = function () {
     createRoom();
 };
 console.log(typeof window.localStorage);
+
+function login_request() {
+    var username=document.getElementById("username").value;
+    var password=document.getElementById("password").value;
+    console.log(username+" "+password);
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:3006/api/user/login",
+        data : {username:username,password:password},
+        success: function(msg) {
+            console.log(msg);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            alert(XMLHttpRequest.responseJSON.code);
+        }
+    });
+
+}
 
 let startBtn = document.getElementById("start");
 

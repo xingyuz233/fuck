@@ -155,7 +155,7 @@
 
 
             </table>
-            <input class="btn" type="button" value="登陆" onclick="">
+            <input class="btn" type="button" value="登陆" onclick="login_request()">
 
         </form>
 
@@ -167,7 +167,8 @@
                 <tr>
                     <th>用户名</th>
                     <td>
-                        <input id="name" type="text" autofocus>
+                        <input id="name" type="text" autofocus onchange="checkRegisterName()">
+                        <p id="alert" style="display: none;color: red">用户名过长，不得超过12个字符</p>
                     </td>
                 </tr>
                 <tr>
@@ -191,7 +192,7 @@
                         <img src="img/user2.png"></td>
                 </tr>
             </table>
-            <input class="btn" type="button" value="注册" onclick="">
+            <input class="btn" type="button" value="注册" onclick="register_request()">
         </form>
     </div>
 
@@ -199,10 +200,12 @@
 
 <div class="register"></div>
 
+
 <script src="js/jquery-3.3.1.min.js"></script>
+
 <script src="js/socket.io.js"></script>
 <script src="js/user.js"></script>
 <script src="js/room.js"></script>
-<script src="js/login.js"></script>
+<script src="js/login.js"></script><script src="js/register.js"></script>
 </body>
 </html>
