@@ -115,6 +115,7 @@ if (username === null) {
             let newRoom = new Room(roomObj.roomid, roomObj.hostid);
             newRoom.side1 = roomObj.side1;
             newRoom.side2 = roomObj.side2;
+            newRoom.state = roomObj.state;
         }
         scroll_roomlist();
 
@@ -125,6 +126,7 @@ if (username === null) {
         let userList = JSON.parse(data);
         for (let userObj of userList) {
             let newUser = new User(userObj.socketid, userObj.name, userObj.avaterid);
+            newUser.state = userObj.state;
         }
         console.log("initUserList success");
 
