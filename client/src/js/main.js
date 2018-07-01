@@ -55,7 +55,7 @@ console.log(camp);
 console.log(name);
 let port = 3001+Number(roomid);
 console.log("connect port "+port);
-const connectionUrl = "http://localhost:"+port;
+const connectionUrl = "http://120.79.227.127:"+port;
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 

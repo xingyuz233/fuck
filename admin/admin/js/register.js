@@ -50,7 +50,7 @@ function register_request() {
     console.log("lallaa "+username+" "+password);
     $.ajax({
         type: "POST",
-        url: "http://localhost:3006/api/user/register",
+        url: "http://120.79.227.127:3006/api/user/register",
         data : {username:username,password:password},
         success: function(msg) {
             console.log(msg);

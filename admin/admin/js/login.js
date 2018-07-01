@@ -38,7 +38,7 @@ function login_request() {
     console.log(username+" "+password);
     $.ajax({
         type: "POST",
-        url: "http://localhost:3006/api/user/login",
+        url: "http://120.79.227.127:3006/api/user/login",
         data : {username:username,password:password},
         success: function(msg) {
             console.log(msg);
@@ -99,7 +99,7 @@ if (username === null) {
     userName.innerHTML = "Hi! " + username;
 
 
-    socket = io.connect("http://localhost:3000");
+    socket = io.connect("http://120.79.227.127:3000");
 
 
     socket.on("who", data => {
