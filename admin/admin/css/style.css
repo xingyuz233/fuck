@@ -32,8 +32,8 @@ background: url(../img/gamedownload_bg.jpg);
 }
 #room_table{
     position: absolute;
-    left: 600px;
-    bottom: 120px;
+    left: 500px;
+    bottom: 150px;
 }
 #room_table th button{
     padding: 7px 25px;

@@ -80,7 +80,6 @@
                     <button id="createRoom">创建房间</button>
 
                 </th>
-
             </tr>
             <!--
             <tr>
@@ -167,21 +166,21 @@
                 <tr>
                     <th>用户名</th>
                     <td>
-                        <input id="name" type="text" autofocus onchange="checkRegisterName()">
-                        <p id="alert" style="display: none;color: red">用户名过长，不得超过12个字符</p>
+                        <p id="alert_username1" style="display: none;color: red">用户名过长，不得超过12个字符</p>
+                        <p id="alert_username2" style="display: none;color: red">用户名重复</p>
                     </td>
                 </tr>
                 <tr>
                     <th>密码</th>
                     <td>
-                        <input id="pass" type="password">
+                        <input id="pass" type="password" onchange="checkConfirm()">
                     </td>
                 </tr>
                 <tr>
                     <th>确认密码</th>
                     <td>
-                        <input id="confirm" type="password">
-                    </td>
+                        <input id="confirm" type="password" onchange="checkConfirm()">
+                        <p id="alert_password" style="display: none;color: red">两次输入密码不相同</p>                    </td>
                 </tr>
                 <tr>
                     <th>头像</th>
