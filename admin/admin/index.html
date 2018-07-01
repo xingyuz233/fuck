@@ -50,17 +50,17 @@
 
         </div>
         <div class="topbar2 in">
-            <p class="log_in">
+            <p class="log_in" id="log_in">
                 <span>请</span>
                 <a class="log_btn">
-                    <div id="btn_log_in" onclick="f_log_btn()">登录</div>
+                    <button id="btn_log_in" onclick="f_log_btn()">登录</button>>
                 </a>
             </p>
-            <p class="log_out">
+            <p class="log_out" id="log_out">
                 <img src="img/user1.png">
-                <span><em class="userName" id="J_navuserName">chy,</em></span>
-                <span class="log_btn">
-	          <a href="javascript:;" class="btn_log_out">退出登陆</a>
+                <span><em class="userName" id="user-name">骚猪哇哇哇哇</em></span>
+                <span class="log_btn" id="btn_log_out" onclick="logout_request()">
+	          <a href="javascript:" class="btn_log_out">退出登陆</a>
 	        </span>
             </p>
         </div>
@@ -69,7 +69,7 @@
 </div>
 
 <div class="container">
-    <div class="hall">
+    <div id='hall' class="hall">
         <p class="title">房间列表</p>
         <table id="room_list">
             <tr><th>房间号</th><th>人数</th><th>地图</th><th>状态</th></tr>
@@ -95,7 +95,7 @@
         </table>
 
     </div>
-    <div class="room">
+    <div id='room' class="room">
         <p class="title">房间：<span id="roomid">-</span></p>
         <p class="title">房主：<span id="host">-</span></p>
         <p class="title">游戏地图：<span id="mapid">-</span></p>
@@ -206,6 +206,7 @@
 <script src="js/socket.io.js"></script>
 <script src="js/user.js"></script>
 <script src="js/room.js"></script>
-<script src="js/login.js"></script><script src="js/register.js"></script>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
 </body>
 </html>

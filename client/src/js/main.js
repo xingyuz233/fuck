@@ -575,7 +575,6 @@ socket.on('offline', playerInfo => {
     if (offlinePlayer) {
         scene.remove(offlinePlayer.model);
     }
-
     window.localStorage.removeItem("roomid");
     window.localStorage.removeItem("name");
     window.localStorage.removeItem("camp");

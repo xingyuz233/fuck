@@ -12,11 +12,25 @@ let maps = ["炙热沙城"];
 let leaveBtn = document.getElementById("leave");
 let swapBtn = document.getElementById("swap");
 
+let hallDiv = document.getElementById("hall");
+let roomDiv = document.getElementById("room");
+let logWindow = document.getElementById("log_window");
+
+
+
+let userName = document.getElementById("user-name");
+let logInNav = document.getElementById("log_in");
+let logOutNav = document.getElementById("log_out");
+
+let logOutBtn = document.getElementById("btn_log_out");
+
+let startBtn = document.getElementById("start");
+
+
 let createRoomBtn = document.getElementById("createRoom");
 createRoomBtn.onclick = function () {
     createRoom();
 };
-console.log(typeof window.localStorage);
 
 function login_request() {
     var username=document.getElementById("username").value;
@@ -28,6 +42,8 @@ function login_request() {
         data : {username:username,password:password},
         success: function(msg) {
             console.log(msg);
+            window.localStorage.setItem("user", username);
+            window.location.href = "";
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
 
@@ -37,7 +53,14 @@ function login_request() {
 
 }
 
-let startBtn = document.getElementById("start");
+function logout_request() {
+    window.localStorage.removeItem("user");
+    window.location.href = "";
+}
+
+
+
+
 
 // socket.on("add_list", data => {
 //     console.log(data);
@@ -56,205 +79,230 @@ let startBtn = document.getElementById("start");
 //     scroll_roomlist();
 // });
 
-socket.on("who", data => {
-    socket.emit('name', {
-        name:"user"
-    })
-});
+let username = window.localStorage.getItem("user");
+console.log("本地存储的user为:"+username);
+if (username === null) {
+    roomDiv.style.display = "none";
+    hallDiv.style.display = "none";
+    logInNav.style.display = "block";
+    logOutNav.style.display = "none";
+    $("#log_window").css("display", "block");
+    $("#logIn").css("display", "block");
+    $("#register").css("display", "none");
+} else {
+    roomDiv.style.display = "none";
+    logWindow.style.display = "none";
+    hallDiv.style.display = "block";
+    logInNav.style.display = "none";
+    logOutNav.style.display = "block";
 
-socket.on("initRoomList", data => {
-    console.log("initRoomList: "+data);
-    let roomList = JSON.parse(data);
-    for (let roomObj of roomList) {
-        let newRoom = new Room(roomObj.roomid, roomObj.hostid);
-        newRoom.side1 = roomObj.side1;
-        newRoom.side2 = roomObj.side2;
-    }
-    scroll_roomlist();
+    userName.innerHTML = "Hi! " + username;
 
-});
 
-socket.on("initUserList", data => {
-    console.log("initUserList: "+data);
-    let userList = JSON.parse(data);
-    for (let userObj of userList) {
+    socket = io.connect("http://localhost:3000");
+
+
+    socket.on("who", data => {
+        socket.emit('name', {
+            name:username
+        })
+    });
+
+    socket.on("initRoomList", data => {
+        console.log("initRoomList: "+data);
+        let roomList = JSON.parse(data);
+        for (let roomObj of roomList) {
+            let newRoom = new Room(roomObj.roomid, roomObj.hostid);
+            newRoom.side1 = roomObj.side1;
+            newRoom.side2 = roomObj.side2;
+        }
+        scroll_roomlist();
+
+    });
+
+    socket.on("initUserList", data => {
+        console.log("initUserList: "+data);
+        let userList = JSON.parse(data);
+        for (let userObj of userList) {
+            let newUser = new User(userObj.socketid, userObj.name, userObj.avaterid);
+        }
+        console.log("initUserList success");
+
+    });
+
+    socket.on("addUser", data => {
+        console.log("addUser: " + data);
+        let userObj = JSON.parse(data);
         let newUser = new User(userObj.socketid, userObj.name, userObj.avaterid);
-    }
-    console.log("initUserList success");
+        console.log("add user "+userObj.socketid+" success!");
+    });
 
-});
-
-socket.on("addUser", data => {
-    console.log("addUser: " + data);
-    let userObj = JSON.parse(data);
-    let newUser = new User(userObj.socketid, userObj.name, userObj.avaterid);
-    console.log("add user "+userObj.socketid+" success!");
-});
-
-socket.on("add_room", data => {
-        let host = new Player(data.host.socketid, data.host.name, data.host.avatarid);
-        let room = new Room(data.roomid, host);
-        console.log("add_room"+data.roomid);
-        console.log(data.host);
-        scroll_roomlist();
-        if(data.roomid == this.roomid)
-            entry(this.roomid);
-    }
-);
-
-socket.on("createRoom", data => {
-    let roomObj = JSON.parse(data);
-    console.log(roomObj);
-    let room = new Room(roomObj.roomid, roomObj.hostid);
-    //房主初始边为匪徒
-    User.userList.get(roomObj.hostid).side = 0;
-    console.log(roomObj.hostid + "create a room "+room);
-    scroll_roomlist();
-    if (roomObj.hostid === socket.id) {
-        entry(roomObj.roomid);
-    }
-});
-
-socket.on("joinRoom", data => {
-    let room = Room.roomList.get(data.roomid);
-    let user = User.userList.get(data.socketid);
-    if (room && user && !room.has(data.socketid)) {
-        user.side = data.side;
-        let sideList = data.side === 0? room.getSide1All(): room.getSide2All();
-        sideList.push(data.socketid);
-
-        if (room.has(socket.id)) {
-            entry(data.roomid);
+    socket.on("add_room", data => {
+            let host = new Player(data.host.socketid, data.host.name, data.host.avatarid);
+            let room = new Room(data.roomid, host);
+            console.log("add_room"+data.roomid);
+            console.log(data.host);
+            scroll_roomlist();
+            if(data.roomid == this.roomid)
+                entry(this.roomid);
         }
-    }
-});
+    );
 
-socket.on("swapSide", data => {
-    let room = Room.roomList.get(data.roomid);
-    let user = User.userList.get(data.socketid);
-    if (room && user && room.has(data.socketid)) {
-        user.side = data.side;
-        let sideList = data.side === 0? room.getSide1All(): room.getSide2All();
-        let oldSideList = data.side === 0? room.getSide2All(): room.getSide1All();
-        let index = oldSideList.indexOf(data.socketid);
-        if (index >= 0) {
-            oldSideList.splice(index, 1);
+    socket.on("createRoom", data => {
+        let roomObj = JSON.parse(data);
+        console.log(roomObj);
+        let room = new Room(roomObj.roomid, roomObj.hostid);
+        //房主初始边为匪徒
+        User.userList.get(roomObj.hostid).side = 0;
+        console.log(roomObj.hostid + "create a room "+room);
+        scroll_roomlist();
+        if (roomObj.hostid === socket.id) {
+            entry(roomObj.roomid);
         }
-        sideList.push(data.socketid);
-        console.log(room);
-        if (room.has(socket.id)) {
-            entry(data.roomid);
-        }
-    }
-});
+    });
 
-socket.on("leave", data => {
-    //let room = Room.roomList.get(data.roomid);
-    let user = User.userList.get(data.socketid);
-    let room = Room.removePlayer(data.socketid);
-    // if (room && room.has(data.socketid)) {
-    //     if (room.removePlayer(data.socketid)) {
-    //         Room.roomList.delete(roomid);
-    //     }
-    // }
-    user.side = -1;
+    socket.on("joinRoom", data => {
+        let room = Room.roomList.get(data.roomid);
+        let user = User.userList.get(data.socketid);
+        if (room && user && !room.has(data.socketid)) {
+            user.side = data.side;
+            let sideList = data.side === 0? room.getSide1All(): room.getSide2All();
+            sideList.push(data.socketid);
 
-   //Room.removePlayer(data.socketid);
-    if (room && room.has(socket.id)) {
-        entry(data.roomid);
-    } else if (User.userList.get(socket.id).side === -1) {
-        scroll_roomlist();
-    }
-});
-
-socket.on("offline", data => {
-    console.log('User ' + data.socketid + ' disconnected.\n');
-    let room = Room.removePlayer(data.socketid);
-    // let user = User.userList.get(data.socketid);
-    User.userList.delete(data.socketid);
-
-    //界面响应
-    if (room && room.has(socket.id)) {
-        entry(room.roomid);
-    }
-    else if (User.userList.get(socket.id).side === -1) {
-        scroll_roomlist();
-    }
-});
-
-socket.on("change_room", data => {
-        console.log(roomlist);
-        let tmp = data.roomdata;
-        let hostplayer = new Player(tmp.host.socketid, tmp.host.name, tmp.host.avatarid);
-        let room = new Room(data.roomid, hostplayer);
-        for (let i in tmp.side1)
-            room.addPlayer(1, new Player(i.socketid, i.name, i.avatarid));
-        for (let i in tmp.side2)
-            room.addPlayer(2, new Player(i.socketid, i.name, i.avatarid));
-        room.setMap(tmp.mapid);
-        if (room.state)
-            room.start();
-        roomlist.set(data.roomid, room);
-        scroll_roomlist();
-    }
-);
-
-socket.on("remove_room", data => {
-    roomlist.delete(data);
-    console.log("remove:"+data);
-    console.log(roomlist);
-    scroll_roomlist();
-    }
-);
-
-socket.on("startGame", data => {
-    let user = User.userList.get(socket.id);
-    let room = Room.roomList.get(data.roomid);
-    let inRoom = false;
-    if (room) {
-        room.status = 1;
-        for (let value of room.side1) {
-            let player = User.userList.get(value);
-            player.status = 1;
-            if (value === socket.id) {
-                inRoom = true;
+            if (room.has(socket.id)) {
+                entry(data.roomid);
             }
         }
-        for (let value of room.side2) {
-            let player = User.userList.get(value);
-            player.status = 1;
-            if (value === socket.id) {
-                inRoom = true;
+    });
+
+    socket.on("swapSide", data => {
+        let room = Room.roomList.get(data.roomid);
+        let user = User.userList.get(data.socketid);
+        if (room && user && room.has(data.socketid)) {
+            user.side = data.side;
+            let sideList = data.side === 0? room.getSide1All(): room.getSide2All();
+            let oldSideList = data.side === 0? room.getSide2All(): room.getSide1All();
+            let index = oldSideList.indexOf(data.socketid);
+            if (index >= 0) {
+                oldSideList.splice(index, 1);
+            }
+            sideList.push(data.socketid);
+            console.log(room);
+            if (room.has(socket.id)) {
+                entry(data.roomid);
             }
         }
-    }
-    if (inRoom) {
-        window.localStorage.setItem("name", user.name);
-        window.localStorage.setItem("camp", user.side);
-        window.localStorage.setItem("roomid", room.roomid);
-        console.log(window.localStorage.getItem("name"));
-        console.log(window.localStorage.getItem("camp"));
-        console.log(window.localStorage.getItem("roomid"));
-        console.log("ready to fly to map 9000");
-        window.open("game.html");
-    }
-});
+    });
 
-socket.on("joinGame", data => {
-   console.log("joining game, loading...");
-   let room = Room.roomList.get(data.roomid);
-   let joiner = User.userList.get(data.socketid);
-   if (room && joiner) {
-       joiner.status = 1;
-       if (data.socketid === socket.id) {
-           window.localStorage.setItem("roomid", room.roomid);
-           window.localStorage.setItem("name", joiner.name);
-           window.localStorage.setItem("camp", joiner.camp);
-           console.log("ready to fly to map 9000");
-           window.open("http://localhost:9000");
-       }
-   }
-});
+    socket.on("leave", data => {
+        //let room = Room.roomList.get(data.roomid);
+        let user = User.userList.get(data.socketid);
+        let room = Room.removePlayer(data.socketid);
+        // if (room && room.has(data.socketid)) {
+        //     if (room.removePlayer(data.socketid)) {
+        //         Room.roomList.delete(roomid);
+        //     }
+        // }
+        user.side = -1;
+
+        //Room.removePlayer(data.socketid);
+        if (room && room.has(socket.id)) {
+            entry(data.roomid);
+        } else if (User.userList.get(socket.id).side === -1) {
+            scroll_roomlist();
+        }
+    });
+
+    socket.on("offline", data => {
+        console.log('User ' + data.socketid + ' disconnected.\n');
+        let room = Room.removePlayer(data.socketid);
+        // let user = User.userList.get(data.socketid);
+        User.userList.delete(data.socketid);
+
+        //界面响应
+        if (room && room.has(socket.id)) {
+            entry(room.roomid);
+        }
+        else if (User.userList.get(socket.id).side === -1) {
+            scroll_roomlist();
+        }
+    });
+
+    socket.on("change_room", data => {
+            console.log(roomlist);
+            let tmp = data.roomdata;
+            let hostplayer = new Player(tmp.host.socketid, tmp.host.name, tmp.host.avatarid);
+            let room = new Room(data.roomid, hostplayer);
+            for (let i in tmp.side1)
+                room.addPlayer(1, new Player(i.socketid, i.name, i.avatarid));
+            for (let i in tmp.side2)
+                room.addPlayer(2, new Player(i.socketid, i.name, i.avatarid));
+            room.setMap(tmp.mapid);
+            if (room.state)
+                room.start();
+            roomlist.set(data.roomid, room);
+            scroll_roomlist();
+        }
+    );
+
+    socket.on("remove_room", data => {
+            roomlist.delete(data);
+            console.log("remove:"+data);
+            console.log(roomlist);
+            scroll_roomlist();
+        }
+    );
+
+    socket.on("startGame", data => {
+        let user = User.userList.get(socket.id);
+        let room = Room.roomList.get(data.roomid);
+        let inRoom = false;
+        if (room) {
+            room.status = 1;
+            for (let value of room.side1) {
+                let player = User.userList.get(value);
+                player.status = 1;
+                if (value === socket.id) {
+                    inRoom = true;
+                }
+            }
+            for (let value of room.side2) {
+                let player = User.userList.get(value);
+                player.status = 1;
+                if (value === socket.id) {
+                    inRoom = true;
+                }
+            }
+        }
+        if (inRoom) {
+            window.localStorage.setItem("name", user.name);
+            window.localStorage.setItem("camp", user.side);
+            window.localStorage.setItem("roomid", room.roomid);
+            console.log(window.localStorage.getItem("name"));
+            console.log(window.localStorage.getItem("camp"));
+            console.log(window.localStorage.getItem("roomid"));
+            console.log("ready to fly to map 9000");
+            window.open("game.html");
+        }
+    });
+
+    socket.on("joinGame", data => {
+        console.log("joining game, loading...");
+        let room = Room.roomList.get(data.roomid);
+        let joiner = User.userList.get(data.socketid);
+        if (room && joiner) {
+            joiner.status = 1;
+            if (data.socketid === socket.id) {
+                window.localStorage.setItem("roomid", room.roomid);
+                window.localStorage.setItem("name", joiner.name);
+                window.localStorage.setItem("camp", joiner.camp);
+                console.log("ready to fly to map 9000");
+                window.open("http://localhost:9000");
+            }
+        }
+    });
+}
+
 
 function scroll_roomlist() {
     var roomlist = Room.roomList;
@@ -312,7 +360,7 @@ function entry(roomid) {
 
     let room = Room.roomList.get(roomid);
 
-    document.getElementById("host").innerHTML = room.hostid;
+    document.getElementById("host").innerHTML = User.userList.get(room.hostid).name;
     document.getElementById("mapid").innerHTML = maps[room.getMapId()];
 
     swapBtn.onclick = function () {
@@ -358,11 +406,11 @@ function entry(roomid) {
 
     $("#side1").empty();
     for (let user of room.getSide1All())
-        $("#side1").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + user + "</span>" +
+        $("#side1").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + User.userList.get(user).name + "</span>" +
             "<span class=\"" + stateClass[room.getState()] + "\">"+stateWord[room.getState()]+"</span></li>");
     $("#side2").empty();
     for (let user of room.getSide2All())
-        $("#side2").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + user + "</span>" +
+        $("#side2").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + User.userList.get(user).name + "</span>" +
             "<span class=\"" + stateClass[room.getState()] + "\">"+stateWord[room.getState()]+"</span></li>");
 }
 

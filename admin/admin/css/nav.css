@@ -32,7 +32,7 @@ and (max-device-width : 1024px)  {
 .nav_list a.on,.nav_list a:hover{border-bottom: 3px solid #566e95;}
 
 .topbar2 {
-    width: 160px;
+    width: 260px;
     white-space:nowrap;
     background: none;
     line-height: 1.4;
@@ -59,7 +59,7 @@ and (max-device-width : 1024px)  {
 }
 .topbar2 .log_out span{
     float: left;
-    max-width: 122px;
+    max-width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.2;
@@ -91,4 +91,8 @@ and (max-device-width : 1024px)  {
     color: #fff;
     font-size: 14px;
     position: relative;
+}
+
+#btn_log_out {
+    float:right
 }
