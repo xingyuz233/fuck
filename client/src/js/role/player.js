@@ -298,7 +298,7 @@ export class Player {
 
     reset() {
         this.status = Player.LIVE;
-        this.model.visible = true;
+        //this.model.visible = true;
         this.hp = 100;
         this.model.position.set(this.bornPosition.x, this.bornPosition.y, this.bornPosition.z);
     }

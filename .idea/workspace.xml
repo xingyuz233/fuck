@@ -3,7 +3,183 @@
   <component name="ChangeListManager">
     <list default="true" id="30876ac1-6a64-476a-8c4a-692c11b46a1c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/main.js" afterPath="$PROJECT_DIR$/client/src/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/client/dist/app.bundle.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/app.bundle.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/css/nav.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/game.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/img/cslogo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/img/gamedownload_bg.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/img/gamedownload_bg1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/img/popup_bg.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/img/user1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/img/user2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/jquery-3.3.1.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/login.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/register.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/room.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/socket.io.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/socket.io.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/user.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/0.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/7.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/8.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/9.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/HP.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/MapContainer.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/MessageBoard.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/ScoreBoard.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/TabBoard.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/chess.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/counter-terrorist-win.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/damage_back.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/damage_front.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/damage_left.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/damage_right.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/grasslight-big.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/gun.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/kill.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/post.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/separator.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/sniper.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/image/terrorist-win.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/de_dust2.fbx" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/model.dae" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/model.mtl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/model.obj" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_0.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_10.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_11.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_12.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_13.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_14.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_15.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_16.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_17.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_18.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_19.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_20.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_21.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_22.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_23.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_24.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_25.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_26.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_27.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_28.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_29.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_30.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_31.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_32.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_33.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_34.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_35.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_36.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_37.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_38.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_39.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_40.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_41.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_42.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_43.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_44.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_45.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_46.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_47.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_48.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_49.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_50.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_51.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_52.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_53.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_54.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_55.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_56.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_57.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/maps/dust2/textures/dust2_material_9.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/player/swat/ty.fbx" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/skybox/nx.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/skybox/ny.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/skybox/nz.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/skybox/px.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/skybox/py.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/skybox/pz.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/weapons/m4a1/m4a1_s.fbx" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/models/weapons/m4a1/noodas.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_0.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_10.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_11.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_12.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_13.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_14.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_15.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_16.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_17.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_18.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_19.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_20.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_21.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_22.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_23.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_24.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_25.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_26.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_27.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_28.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_29.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_30.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_31.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_32.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_33.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_34.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_35.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_36.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_37.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_38.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_39.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_40.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_41.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_42.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_43.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_44.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_45.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_46.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_47.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_48.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_49.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_50.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_51.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_52.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_53.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_54.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_55.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_56.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_57.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/dist/static/textures/dust2_material_9.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/role/player.js" afterPath="$PROJECT_DIR$/client/src/js/role/player.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,41 +207,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="646" column="0" lean-forward="true" selection-start-line="646" selection-start-column="0" selection-end-line="646" selection-end-column="0" />
+            <state relative-caret-position="492">
+              <caret line="649" column="33" lean-forward="false" selection-start-line="649" selection-start-column="33" selection-end-line="649" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/dist/index.html">
+      <file leaf-file-name="player.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/js/role/player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="168" column="44" lean-forward="true" selection-start-line="168" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/dist/js/register.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/dist/js/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="307" column="13" lean-forward="true" selection-start-line="307" selection-start-column="13" selection-end-line="307" selection-end-column="13" />
+            <state relative-caret-position="212">
+              <caret line="304" column="0" lean-forward="true" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,7 +231,7 @@
         <entry file="file://$PROJECT_DIR$/admin/admin/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
-              <caret line="172" column="21" lean-forward="true" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
+              <caret line="172" column="21" lean-forward="false" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -91,7 +247,7 @@
         <entry file="file://$PROJECT_DIR$/admin/admin/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4572">
-              <caret line="308" column="9" lean-forward="true" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
+              <caret line="308" column="9" lean-forward="false" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -111,27 +267,7 @@
         <entry file="file://$PROJECT_DIR$/admin/admin/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nav.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/dist/css/nav.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-258">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/dist/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+              <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -149,7 +285,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scene</find>
       <find>log_out</find>
       <find>register_request</find>
       <find>log_in</find>
@@ -179,6 +314,7 @@
       <find>localhost</find>
       <find>local</find>
       <find>nav</find>
+      <find>reset</find>
     </findStrings>
     <replaceStrings>
       <replace>static/models/maps/dust2/textures</replace>
@@ -235,7 +371,6 @@
         <option value="$PROJECT_DIR$/client/webpack.config.js" />
         <option value="$PROJECT_DIR$/client/src/js/ui.js" />
         <option value="$PROJECT_DIR$/client/src/js/controller/MouseController.js" />
-        <option value="$PROJECT_DIR$/client/src/js/role/player.js" />
         <option value="$PROJECT_DIR$/admin/admin/css/nav.css" />
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/admin/admin/js/user.js" />
@@ -249,6 +384,7 @@
         <option value="$PROJECT_DIR$/admin/admin/css/style.css" />
         <option value="$PROJECT_DIR$/client/dist/css/style.css" />
         <option value="$PROJECT_DIR$/client/src/js/main.js" />
+        <option value="$PROJECT_DIR$/client/src/js/role/player.js" />
       </list>
     </option>
   </component>
@@ -322,11 +458,6 @@
             <path>
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="fps-game" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fps-game" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -341,6 +472,14 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fps-game" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="role" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
@@ -594,12 +733,12 @@
       <workItem from="1530356545625" duration="5824000" />
       <workItem from="1530363179740" duration="3787000" />
       <workItem from="1530368622701" duration="11940000" />
-      <workItem from="1530411500620" duration="15115000" />
+      <workItem from="1530411500620" duration="15872000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="556086000" />
+    <option name="totallyTimeSpent" value="556843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="201" y="167" width="1451" height="802" extended-state="0" />
@@ -781,6 +920,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1229">
           <caret line="93" column="16" lean-forward="false" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -823,14 +963,6 @@
             <element signature="e#1862#1984#0" expanded="false" />
             <element signature="n#!!block;n#getObject#0;n#MouseController#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/js/role/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7770">
-          <caret line="518" column="8" lean-forward="false" selection-start-line="518" selection-start-column="8" selection-end-line="518" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,18 +1150,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/dist/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="168" column="44" lean-forward="true" selection-start-line="168" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/admin/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
-          <caret line="172" column="21" lean-forward="true" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
+          <caret line="172" column="21" lean-forward="false" selection-start-line="172" selection-start-column="21" selection-end-line="172" selection-end-column="21" />
           <folding>
             <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1043,7 +1167,7 @@
     <entry file="file://$PROJECT_DIR$/admin/admin/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4572">
-          <caret line="308" column="9" lean-forward="true" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
+          <caret line="308" column="9" lean-forward="false" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1059,15 +1183,7 @@
     <entry file="file://$PROJECT_DIR$/admin/admin/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/dist/css/nav.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-258">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1080,10 +1196,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/dist/css/nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="168" column="44" lean-forward="true" selection-start-line="168" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="646" column="0" lean-forward="true" selection-start-line="646" selection-start-column="0" selection-end-line="646" selection-end-column="0" />
+        <state relative-caret-position="492">
+          <caret line="649" column="33" lean-forward="false" selection-start-line="649" selection-start-column="33" selection-end-line="649" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/js/role/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="304" column="0" lean-forward="true" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
           <folding />
         </state>
       </provider>
