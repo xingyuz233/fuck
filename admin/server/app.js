@@ -52,6 +52,7 @@ io.sockets.on('connection', function (socket) {
             socket.emit("createRoomFail", "no free room.");
         }
         else {
+            user.state = 0;
             let room = new Room(roomid, user.socketid);
             console.log("createRoomSuccess! new room "+room.toJson());
             io.emit("createRoom", room.toJson());
@@ -91,11 +92,15 @@ io.sockets.on('connection', function (socket) {
     socket.on('joinRoom', data => {
         console.log(socket.id+" join room " +data.roomid);
         let room = Room.roomList.get(data.roomid);
-        if (room) {
+        let user = User.userList.get(socket.id);
+        if (room && user) {
             //双重检查
             let sideList = data.side === 0? room.getSide1All(): room.getSide2All();
             if (sideList.length < room.capacity) {
                 sideList.push(socket.id);
+
+                user.state = 0;
+
                 io.emit('joinRoom', data);
 
                 console.log("join success");
@@ -135,6 +140,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('leave', data => {
         console.log(data.socketid + " request to leave his room");
         Room.removePlayer(data.socketid);
+        let user = User.userList.get(data.socketid);
+        if (user) {
+            user.state = -1;
+        }
         io.emit('leave', data);
     });
 
@@ -187,26 +196,32 @@ io.sockets.on('connection', function (socket) {
     //游戏部分
     socket.on('startGame', data => {
         console.log("room "+data.roomid+" requests for starting game");
+        let room = Room.roomList.get(data.roomid);
+        if (room) {
+            room.state = 1;
+            for (let value of room.side1) {
+                let player = User.userList.get(value);
+                if (player) {
+                    player.state = 1;
+                }
+            }
+            for (let value of room.side2) {
+                let player = User.userList.get(value);
+                if (player) {
+                    player.state = 1;
+                }
+            }
+        }
         io.emit('startGame', data);
-        // let room = Room.roomList.get(data.roomid);
-        // if (room) {
-        //     for (let value of room.side1) {
-        //         let socket = socketList.get(value);
-        //         if (socket) {
-        //             socket.emit('startGame', data);
-        //         }
-        //     }
-        //     for (let value of room.side2) {
-        //         let socket = socketList.get(value);
-        //         if (socket) {
-        //             socket.emit('startGame', data);
-        //         }
-        //     }
-        // }
+
     });
 
     socket.on('joinGame', data => {
         console.log(data.socketid +" requests for joining game");
+        let user = User.userList.get(data.socketid);
+        if (user){
+            user.state = 1;
+        }
         io.emit('joinGame', data);
     })
 });

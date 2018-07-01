@@ -4,7 +4,7 @@ class User {
         this.name = name;
         this.avatarid = avaterid;
         this.side = -1;
-
+        this.state = -1;
         User.userList.set(socketid, this);
     };
 }

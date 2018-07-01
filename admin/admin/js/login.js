@@ -153,7 +153,9 @@ if (username === null) {
         console.log(roomObj);
         let room = new Room(roomObj.roomid, roomObj.hostid);
         //房主初始边为匪徒
-        User.userList.get(roomObj.hostid).side = 0;
+        let user = User.userList.get(roomObj.hostid);
+        user.side = 0;
+        user.state = 0;
         console.log(roomObj.hostid + "create a room "+room);
         scroll_roomlist();
         if (roomObj.hostid === socket.id) {
@@ -166,6 +168,7 @@ if (username === null) {
         let user = User.userList.get(data.socketid);
         if (room && user && !room.has(data.socketid)) {
             user.side = data.side;
+            user.state = 0;
             let sideList = data.side === 0? room.getSide1All(): room.getSide2All();
             sideList.push(data.socketid);
 
@@ -204,6 +207,7 @@ if (username === null) {
         //     }
         // }
         user.side = -1;
+        user.state = -1;
 
         //Room.removePlayer(data.socketid);
         if (room && room.has(socket.id)) {
@@ -258,17 +262,17 @@ if (username === null) {
         let room = Room.roomList.get(data.roomid);
         let inRoom = false;
         if (room) {
-            room.status = 1;
+            room.state = 1;
             for (let value of room.side1) {
                 let player = User.userList.get(value);
-                player.status = 1;
+                player.state = 1;
                 if (value === socket.id) {
                     inRoom = true;
                 }
             }
             for (let value of room.side2) {
                 let player = User.userList.get(value);
-                player.status = 1;
+                player.state = 1;
                 if (value === socket.id) {
                     inRoom = true;
                 }
@@ -282,7 +286,7 @@ if (username === null) {
             console.log(window.localStorage.getItem("camp"));
             console.log(window.localStorage.getItem("roomid"));
             console.log("ready to fly to map 9000");
-            entry(roomid);
+            entry(room.roomid);
             window.open("game.html");
         }
         scroll_roomlist();
@@ -294,7 +298,7 @@ if (username === null) {
         let room = Room.roomList.get(data.roomid);
         let joiner = User.userList.get(data.socketid);
         if (room && joiner) {
-            joiner.status = 1;
+            joiner.state = 1;
             if (data.socketid === socket.id) {
                 window.localStorage.setItem("roomid", room.roomid);
                 window.localStorage.setItem("name", joiner.name);
@@ -408,13 +412,27 @@ function entry(roomid) {
     // });
 
     $("#side1").empty();
-    for (let user of room.getSide1All())
-        $("#side1").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + User.userList.get(user).name + "</span>" +
-            "<span class=\"" + stateClass[room.getState()] + "\">"+stateWord[room.getState()]+"</span></li>");
+    for (let userid of room.getSide1All()) {
+        let user = User.userList.get(userid);
+        if (user.state === -1) {
+            user.state = 0
+        }
+        if (user) {
+            $("#side1").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + user.name + "</span>" +
+                "<span class=\"" + stateClass[user.state] + "\">" + stateWord[user.state] + "</span></li>");
+        }
+    }
     $("#side2").empty();
-    for (let user of room.getSide2All())
-        $("#side2").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + User.userList.get(user).name + "</span>" +
-            "<span class=\"" + stateClass[room.getState()] + "\">"+stateWord[room.getState()]+"</span></li>");
+    for (let userid of room.getSide2All()) {
+        let user = User.userList.get(userid);
+        if (user.state === -1) {
+            user.state = 0
+        }
+        if (user) {
+            $("#side2").append("<li><img src=\"img/user" + avatarid + ".png\"><span class=\"name\">" + user.name + "</span>" +
+                "<span class=\"" + stateClass[user.state] + "\">" + stateWord[user.state] + "</span></li>");
+        }
+    }
 }
 
 function add(side) {
