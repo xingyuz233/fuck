@@ -282,8 +282,11 @@ if (username === null) {
             console.log(window.localStorage.getItem("camp"));
             console.log(window.localStorage.getItem("roomid"));
             console.log("ready to fly to map 9000");
+            entry(roomid);
             window.open("game.html");
         }
+        scroll_roomlist();
+
     });
 
     socket.on("joinGame", data => {
@@ -337,7 +340,7 @@ function scroll_roomlist() {
         th3.innerHTML = maps[value.getMapId()];
 
         let th4 = document.createElement("th");
-        th4.innerHTML = stateWord[value.getState()];
+        th4.innerHTML = stateWord[value.state];
 
         tr.appendChild(th1);
         tr.appendChild(th2);

@@ -157,6 +157,13 @@ for(let i = 1; i <=4; i++) {
         Player.counterTerroristWins++;
         clearTimeout(roundTimeSetter);
         clearTimeout(bombTimeSetter);
+
+        //房间没人了
+        if (Player.terroristMap.size === 0 && Player.counterTerroristMap.size === 0) {
+            Player.terroristWins = 0;
+            Player.counterTerroristWins = 0;
+        }
+
         io.emit('roundOver', {
             terroristWins: Player.terroristWins,
             counterTerroristWins: Player.counterTerroristWins,
