@@ -304,7 +304,7 @@ if (username === null) {
                 window.localStorage.setItem("name", joiner.name);
                 window.localStorage.setItem("camp", joiner.camp);
                 console.log("ready to fly to map 9000");
-                window.open("http://localhost:9000");
+                window.open("game.html");
             }
         }
     });
