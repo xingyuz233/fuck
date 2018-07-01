@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Counter-Strike: Global Offensive</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+
+</head>
+<body>
+<div class="navbox">
+    <div class="nav">
+
+        <div class="nav_list">
+            <a href="">
+                <span></span>
+                <h4>首页</h4>
+                <p>HOME</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>游戏介绍</h4>
+                <p>INTRODUCTION</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>新手教程</h4>
+                <p>TUTORIAL</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>宣传视频</h4>
+                <p>VIDEOS</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>玩家排行</h4>
+                <p>RANKLIST</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>经典战役</h4>
+                <p>BATTLE</p>
+            </a>
+            <a href="">
+                <span></span>
+                <h4>战绩统计</h4>
+                <p>STATISTICS</p>
+            </a>
+
+        </div>
+        <div class="topbar2 in">
+            <p class="log_in" id="log_in">
+                <span>请</span>
+                <a class="log_btn">
+                    <button id="btn_log_in" onclick="f_log_btn()">登录</button>>
+                </a>
+            </p>
+            <p class="log_out" id="log_out">
+                <img src="img/user1.png">
+                <span><em class="userName" id="user-name">骚猪哇哇哇哇</em></span>
+                <span class="log_btn" id="btn_log_out" onclick="logout_request()">
+	          <a href="javascript:" class="btn_log_out">退出登陆</a>
+	        </span>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div id='hall' class="hall">
+        <p class="title">房间列表</p>
+        <table id="room_list">
+            <tr><th>房间号</th><th>人数</th><th>地图</th><th>状态</th></tr>
+        </table>
+        <table id="room_table">
+            <tr>
+                <th>
+                    <button id="createRoom">创建房间</button>
+
+                </th>
+            </tr>
+            <!--
+            <tr>
+                <th>
+                    <div onclick="joinRoom()">加入房间</div>
+
+                </th>
+                <td><input id="join_room" type="text" autofocus>
+                </td>
+            </tr>
+            -->
+        </table>
+
+    </div>
+    <div id='room' class="room">
+        <p class="title">房间：<span id="roomid">-</span></p>
+        <p class="title">房主：<span id="host">-</span></p>
+        <p class="title">游戏地图：<span id="mapid">-</span></p>
+        <section id="player">
+            <figure class="side">
+                <p>SIDE 1</p>
+                <ul id="side1">
+                    <li><img src="img/user1.png"><span class="name">robot1</span><span class="ready">准备</span></li>
+                    <li><img src="img/user1.png"><span class="name">robot1</span><span class="prepare">未准备</span></li>
+                    <li><img src="img/user1.png"><span class="name">robot1</span><span class="ready">准备</span></li>
+                </ul>
+            </figure>
+
+            <figure class="side">
+                <p>SIDE 2</p>
+                <ul id="side2">
+                    <li><img src="img/user1.png"><span class="name">robot2</span><span class="ready">准备</span></li>
+                    <li><img src="img/user2.png"><span class="name">robot2</span><span class="ready">准备</span></li>
+                </ul>
+            </figure>
+            <figure class="side">
+                <button id="start">开始游戏</button>
+                <button id="leave">退出房间</button>
+                <button id="swap">更换阵营</button>
+            </figure>
+        </section>
+    </div>
+</div>
+
+<div id="log_window">
+    <a class="close" onclick="f_close_log_window()">X</a>
+    <div id="logIn">
+        <img src="img/user2.png">
+
+        <form>
+            <table>
+                <tr>
+                    <th>用户名</th>
+                    <td>
+                        <input id="username" type="text" autofocus>
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td>
+                        <input id="password" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label class="checkbox">
+                            <input type="checkbox" value="remember-me">记住密码
+                        </label>
+                    </td>
+                </tr>
+
+
+            </table>
+            <input class="btn" type="button" value="登陆" onclick="login_request()">
+
+        </form>
+
+        <a onclick="r()">没有账号，去注册>></a>
+    </div>
+    <div id="register">
+        <form>
+            <table>
+                <tr>
+                    <th>用户名</th>
+                    <td>
+                        <p id="alert_username1" style="display: none;color: red">用户名过长，不得超过12个字符</p>
+                        <p id="alert_username2" style="display: none;color: red">用户名重复</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td>
+                        <input id="pass" type="password" onchange="checkConfirm()">
+                    </td>
+                </tr>
+                <tr>
+                    <th>确认密码</th>
+                    <td>
+                        <input id="confirm" type="password" onchange="checkConfirm()">
+                        <p id="alert_password" style="display: none;color: red">两次输入密码不相同</p>                    </td>
+                </tr>
+                <tr>
+                    <th>头像</th>
+                    <td>
+                        <input type="radio" name="radiobutton" value="user1" checked>
+                        <img src="img/user1.png">
+                        <input type="radio" name="radiobutton" value="user2">
+                        <img src="img/user2.png"></td>
+                </tr>
+            </table>
+            <input class="btn" type="button" value="注册" onclick="register_request()">
+        </form>
+    </div>
+
+</div>
+
+<div class="register"></div>
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script src="js/socket.io.js"></script>
+<script src="js/user.js"></script>
+<script src="js/room.js"></script>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+.container{
+background: url(../img/gamedownload_bg.jpg);
+    padding: 50px;
+    height: 576px;
+}
+.hall{
+/*    display: none;*/
+    margin-left: 450px;
+    float: left;
+    height: 550px;
+    width: 500px;
+    background: rgba(20,20,20, 0.75);
+    border: #3b92e6;
+    border-radius: 10px;
+}
+.hall #room_list{
+    font-size: 1.3em;
+    padding: 20px;
+    color: white;
+}
+
+#room_list th{
+    font-weight: normal;
+    padding: 15px;
+}
+.title{
+    padding-left: 20px;
+    padding-top: 5px;
+    color: white;
+    font-size: 1.5em;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+#room_table{
+    position: absolute;
+    left: 500px;
+    bottom: 150px;
+}
+#room_table th button{
+    padding: 7px 25px;
+    border-radius: 5px;
+    background: coral;
+}
+#room_table td{
+    padding: 10px 0 ;
+}
+.room{
+    display: none;
+    margin-left: 220px;
+    padding: 10px;
+    color: white;
+    float: left;
+    height: 550px;
+    width: 950px;
+    background: rgba(20,20,20, 0.75);
+    border-radius: 10px;
+}
+.side ul li {
+    display:block;
+}
+
+.side img, .side span {
+    display: inline-block;
+    vertical-align:middle;
+}
+.side .name{
+    width: 100px;
+}
+.side {
+    display: inline-block;
+    float:left;
+}
+
+.side button{
+    display: block;
+}
+.side input{
+    width: 35px;
+}
+
+#side1, #side2 {
+    width:250px
+}
+
+#start{
+    margin: 30px 10px 20px 10px;
+    padding: 10px 45px;
+    background-color: rgba(235,95,0,0.7);
+    border-radius: 5px;
+}
+#leave,#swap,#choose{
+    margin: 10px;
+    padding: 10px 45px;
+    background-color: rgba(55,150,180,.7);
+    border-radius: 5px;
+}
+#choose{
+    margin: 10px;
+    padding: 10px 25px;
+    background-color: rgba(55,150,180,.7);
+    border-radius: 5px;
+}
+button{
+    border: none;
+}
+#player{
+    padding-left: 10px;
+    padding-top: 10px;
+
+}
+
+#player img{
+    height: 40px;
+    width: 40px;
+    border-radius:20px;
+    margin: 5px;
+    border: solid;
+}
+
+#player .name{
+    padding: 10px;
+}
+
+#player .ready{
+    padding: 5px 5px;
+    background: rgba(127,225,212,0.9);
+    border-radius: 3px;
+}
+
+#player .prepare{
+    padding: 5px 5px;
+    background: rgba(233,150,122,0.9);
+}
+#log_window{
+    display: none;
+    background: url(../img/popup_bg.jpg);
+    position: fixed;
+    top:15%;
+    left: 35%;
+    height: 450px;
+    width: 440px;
+    border: solid;
+    border-image-width: 1px;
+    padding-top: 110px;
+}
+
+#logIn img{
+    float: left;
+    height: 120px;
+    width: 120px;
+    border-radius:60px;
+    margin-left: 150px;
+    border: solid;
+}
+
+.close{
+    color:white;
+    position: absolute;
+    right: 5%;
+    top: 1%;
+}
+
+#logIn a{
+    color:whitesmoke;
+    float: left;
+    padding-left: 150px;
+}
+
+#logIn form {
+    margin-left: 20px;
+    float: left;
+    margin-top: 20px;
+    font-size: 10pt;
+    padding: 15px 50px;
+    color: rgb(230, 230, 230);
+    background: rgba(10, 10, 15, 0.85);
+    font-family: Baskerville Old Face;
+}
+#logIn td {
+    width: 10%;
+    padding: 12px 6px;
+    text-align: left;
+}
+#logIn form .btn {
+    font-size: 12pt;
+    border-style: hidden;
+    border-radius: 7px;
+    background: rgba(230, 230, 230, 1);
+    padding: 10px 110px;
+    color: black;
+    text-decoration: none;
+    margin-left: 17px;
+    background: #3b92e6;
+}
+#logIn table input {
+    margin-left: 10px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+
+#register img{
+    height: 40px;
+    width: 40px;
+    border-radius:20px;
+    margin: 5px;
+    border: solid;
+}
+
+#register form {
+    float: left;
+    margin-top: 20px;
+    font-size: 10pt;
+    padding: 15px 30px;
+    padding-left: 0;
+    color: rgb(230, 230, 230);
+    background: rgba(10, 10, 15, 0.85);
+    font-family: Baskerville Old Face;
+}
+#register td {
+    width: 10%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 50px;
+    text-align: left;
+}
+#register form .btn {
+    font-size: 12pt;
+    border-style: hidden;
+    border-radius: 7px;
+    background: rgba(230, 230, 230, 1);
+    padding: 10px 135px;
+    color: black;
+    background: #3b92e6;
+    text-decoration: none;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+#register table input {
+    padding-right: 30px;
+    border-radius: 5px;
+}
+#register th{
+    width: 5px;
+}

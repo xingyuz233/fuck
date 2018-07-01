@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30876ac1-6a64-476a-8c4a-692c11b46a1c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/admin/admin/js/login.js" afterPath="$PROJECT_DIR$/admin/admin/js/login.js" />
-      <change beforePath="$PROJECT_DIR$/admin/admin/js/register.js" afterPath="$PROJECT_DIR$/admin/admin/js/register.js" />
-      <change beforePath="$PROJECT_DIR$/client/dist/app.bundle.js" afterPath="$PROJECT_DIR$/client/dist/app.bundle.js" />
-      <change beforePath="$PROJECT_DIR$/client/dist/app.bundle.js.map" afterPath="$PROJECT_DIR$/client/dist/app.bundle.js.map" />
-      <change beforePath="$PROJECT_DIR$/client/dist/css/nav.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/img/cslogo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/img/gamedownload_bg.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/img/gamedownload_bg1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/img/popup_bg.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/img/user1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/img/user2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/js/jquery-3.3.1.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/js/login.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/js/room.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/js/socket.io.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/js/socket.io.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/dist/js/user.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/main.js" afterPath="$PROJECT_DIR$/client/src/js/main.js" />
-    </list>
+    <list default="true" id="30876ac1-6a64-476a-8c4a-692c11b46a1c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -347,6 +325,12 @@
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="fps-game" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fps-game" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -365,14 +349,13 @@
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="fps-game" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="fps-game" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fps-game" type="b2602c69:ProjectViewProjectNode" />
@@ -636,16 +619,15 @@
       <workItem from="1530356545625" duration="5824000" />
       <workItem from="1530363179740" duration="3787000" />
       <workItem from="1530368622701" duration="11940000" />
-      <workItem from="1530411500620" duration="10905000" />
+      <workItem from="1530411500620" duration="10956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="551876000" />
+    <option name="totallyTimeSpent" value="551927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="28" y="209" width="1451" height="802" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -659,7 +641,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3779972" sideWeight="0.508547" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271824" sideWeight="0.495338" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271824" sideWeight="0.495338" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.081807084" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2020757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
