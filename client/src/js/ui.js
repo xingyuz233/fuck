@@ -248,7 +248,7 @@ export class UI {
         for (let i=0;i<2;i++){
             this.killMessages.children[i].childNodes[1].innerHTML=this.killMessages.children[i+1].childNodes[1].innerHTML;
         }
-        this.killMessages.children[2].childNodes[1].innerHTML=killer+ "kills" +victim;
+        this.killMessages.children[2].childNodes[1].innerHTML=killer+ " kills " +victim;
         if (this.killMessageCount<3){
             this.killMessages.children[2-this.killMessageCount].style.visibility="visible";
             this.killMessageCount++;

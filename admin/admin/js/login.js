@@ -37,7 +37,7 @@ let startBtn = document.getElementById("start");
 //     scroll_roomlist();
 // });
 
-socket.on("who", data=> {
+socket.on("who", data => {
     socket.emit('name', {
         name:"user"
     })

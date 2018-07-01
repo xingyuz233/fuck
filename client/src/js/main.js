@@ -630,6 +630,7 @@ socket.on('die', data => {
     Player.get(data.killed).die();
 
     //右上角显示杀敌信息
+    ui.printDeathMessage(Player.get(data.killer).name, Player.get(data.killed));
 });
 
 socket.on('roundOver', data => {

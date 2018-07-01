@@ -37,6 +37,12 @@ let startBtn = document.getElementById("start");
 //     scroll_roomlist();
 // });
 
+socket.on("who", data => {
+    socket.emit('name', {
+        name:"user"
+    })
+});
+
 socket.on("initRoomList", data => {
     console.log("initRoomList: "+data);
     let roomList = JSON.parse(data);
