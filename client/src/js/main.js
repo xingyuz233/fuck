@@ -40,22 +40,10 @@ let player;
 let gameMap;
 let ui;
 
-let roomid = window.localStorage.getItem("roomid");
-let camp = Number(window.localStorage.getItem("camp"));
-let name = window.localStorage.getItem("name");
 
-
-if (roomid === null ){
-    window.location.href = "";
-}
-roomid = Number(window.localStorage.getItem("roomid"));
-
-console.log(roomid);
-console.log(camp);
-console.log(name);
-let port = 3001+Number(roomid);
+let port = 3000;
 console.log("connect port "+port);
-const connectionUrl = "http://120.79.227.127:"+port;
+const connectionUrl = "http://localhost:"+port;
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
@@ -575,9 +563,6 @@ socket.on('offline', playerInfo => {
     if (offlinePlayer) {
         scene.remove(offlinePlayer.model);
     }
-    window.localStorage.removeItem("roomid");
-    window.localStorage.removeItem("name");
-    window.localStorage.removeItem("camp");
 });
 /*
 socket.on('bullet', function (bullet) {
