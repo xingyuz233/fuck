@@ -289,7 +289,7 @@ if (username === null) {
             console.log(window.localStorage.getItem("roomid"));
             console.log("ready to fly to map 9000");
             entry(room.roomid);
-            window.open("game.html");
+            window.open("index.html");
         }
         scroll_roomlist();
 
@@ -306,7 +306,7 @@ if (username === null) {
                 window.localStorage.setItem("name", joiner.name);
                 window.localStorage.setItem("camp", joiner.camp);
                 console.log("ready to fly to map 9000");
-                window.open("game.html");
+                window.open("index.html");
             }
         }
     });

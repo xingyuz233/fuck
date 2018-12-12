@@ -474,9 +474,9 @@ function animate() {
 socket.on('init', data => {
     console.log(data);
 
-    //let camp = (data.terroristNum <= data.counterTerroristNum)? Player.TERRORIST_CAMP: Player.COUNTERTERRORIST_CAMP;
+    let camp = (data.terroristNum <= data.counterTerroristNum)? Player.TERRORIST_CAMP: Player.COUNTERTERRORIST_CAMP;
     // let camp = Player.TERRORIST_CAMP;
-    // let name = "xingyu";
+    let name = "xingyu";
     // let index = (camp === Player.TERRORIST_CAMP) ? data.terroristNum : data.counterTerroristNum;
 
     // player.socketid = socket.id;
