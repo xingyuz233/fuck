@@ -55,6 +55,8 @@ export class MouseController {
         pitchObject.rotation.x += movementY * 0.002;
 
         pitchObject.rotation.x = Math.max( - PI_2, Math.min( PI_2, pitchObject.rotation.x ) );
+
+        pitchObject.position.z = -yawObject.height * Math.cos(pitchObject.rotation.x);
     }
 
     onMouseDown(event) {

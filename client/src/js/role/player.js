@@ -171,7 +171,7 @@ export class Player {
 
         object.add(pitchObject);
         pitchObject.position.y += object.height;
-        pitchObject.position.z += 0;
+        pitchObject.position.z -= object.height;
         pitchObject.rotation.y += Math.PI;
         console.log(pitchObject);
 
@@ -181,16 +181,18 @@ export class Player {
         pitchObject.add(camera);
         object.add(pitchObject);
         object.playerid = this.socketid;
+        object.kind = "player";
         this.camera = camera;
         this.pitchObject = pitchObject;
     }
 
     initialModelPosition(position) {
-        if (position) {
-            this.model.position.set(position.x, position.y, position.z);
-        } else {
-            this.model.position.set(this.bornPosition.x, this.bornPosition.y, this.bornPosition.z);
-        }
+        this.model.position.set(0,10,0);
+        // if (position) {
+        //     this.model.position.set(position.x, position.y, position.z);
+        // } else {
+        //     this.model.position.set(this.bornPosition.x, this.bornPosition.y, this.bornPosition.z);
+        // }
     }
 
     equipRifle(rifle) {
@@ -535,7 +537,7 @@ export class Player {
                 console.log(model.shoulder);
                 model.righthand = model.children[8].children[3].children[1].children[1].
                     children[2].children[1].children[1].children[1];
-                model.height = 170;
+                model.height = 300;
 
                 Player.initialActions(model);
                 resolve(model);

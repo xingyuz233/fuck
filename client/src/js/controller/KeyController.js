@@ -16,11 +16,13 @@ const KEY_SPACE = 32;
 
 const KEY_M = 77;
 
+
 //游戏功能
 const KEY_ESC = 27;
 const KEY_TAB = 9;
 const KEY_I = 73;
-const KEY_O = 43;
+const KEY_O = 79;
+const KEY_ENTER = 13;
 
 //基本游戏参数
 const RUN_SPEED = 40;
@@ -50,115 +52,141 @@ export class KeyController {
         this.ui = ui;
 
         this.showTabBoard = false;
+
+        // 当前键位状态{游戏状态:0，聊天状态:1}
+        this.keyStatus = 0;
+
         this.bind();
         this.setSelfView();
     }
 
 
     onKeyDown(event) {
+        if (this.keyStatus === 0) {
+            switch (event.keyCode) {
 
-        switch (event.keyCode) {
+                case KEY_UP: /*up*/
+                case KEY_W: /*W*/
+                    this.moveForward = true;
+                    break;
 
-            case KEY_UP: /*up*/
-            case KEY_W: /*W*/
-                this.moveForward = true;
-                break;
+                case KEY_LEFT: /*left*/
+                case KEY_A: /*A*/
+                    this.moveLeft = true;
+                    break;
 
-            case KEY_LEFT: /*left*/
-            case KEY_A: /*A*/
-                this.moveLeft = true;
-                break;
+                case KEY_DOWN: /*down*/
+                case KEY_S: /*S*/
+                    this.moveBackward = true;
+                    break;
 
-            case KEY_DOWN: /*down*/
-            case KEY_S: /*S*/
-                this.moveBackward = true;
-                break;
+                case KEY_RIGHT: /*right*/
+                case KEY_D: /*D*/
+                    this.moveRight = true;
+                    break;
+                /*
+                            case 82: //R
+                                this.moveUp = true;
+                                break;
+                            case 70: //F
+                                this.moveDown = true;
+                                break;
+                */
+                case KEY_SHIFT: /*SHIFT*/
+                    this.run = true;
+                    break;
 
-            case KEY_RIGHT: /*right*/
-            case KEY_D: /*D*/
-                this.moveRight = true;
-                break;
-            /*
-                        case 82: //R
-                            this.moveUp = true;
-                            break;
-                        case 70: //F
-                            this.moveDown = true;
-                            break;
-            */
-            case KEY_SHIFT: /*SHIFT*/
-                this.run = true;
-                break;
+                case KEY_SPACE:
+                    if (!this.inAir && !this.jump) {
+                        this.jump = true;
+                    }
+                    break;
 
-            case KEY_SPACE:
-                if (!this.inAir && !this.jump) {
-                    this.jump = true;
-                }
-                break;
+                case KEY_M:
+                    this.player.socket.emit('buyRifle', {
+                        'socketid': this.player.socket.id,
+                        'rifle': 'm4a1'
+                    });
+                    break;
 
-            case KEY_M:
-                this.player.socket.emit('buyRifle', {
-                    'socketid': this.player.socket.id,
-                    'rifle': 'm4a1'
-                });
-                break;
+                case KEY_I:
+                    this.ui.printPlayerInfo(Player.getSortedTerrorists(), Player.getSortedCounterTerrorists());
+                    this.ui.showTabBoard();
+                    break;
 
-            case KEY_I:
-                this.ui.printPlayerInfo(Player.getSortedTerrorists(), Player.getSortedCounterTerrorists());
-                this.ui.showTabBoard();
-                break;
+                case KEY_ENTER:
+                    this.ui.showMessageBoard();
+                    this.keyStatus = 1;
+                    break;
+            }
+        } else if (this.keyStatus === 1) {
+            switch (event.keyCode) {
 
-            case KEY_O:
-                this.ui.showMessageBoard();
+                case KEY_ENTER:
+                    this.ui.closeMessageBoard();
+                    this.keyStatus = 0;
+                    let message = this.ui.messageInput.value;
+                    if (this.ui.messageInput.value !== "") {
+                        this.player.socket.emit('chat', {
+                            'socketid': this.player.socket.id,
+                            'message': message
+                        })
+                    }
+                    this.ui.messageInput.value = "";
+                    break;
+            }
+
         }
 
     }
 
     onKeyUp(event) {
+        if (this.keyStatus === 0) {
+            switch (event.keyCode) {
 
-        switch (event.keyCode) {
-
-            case KEY_UP: /*up*/
-            case KEY_W: /*W*/
-                this.moveForward = false;
-                break;
-
-            case KEY_LEFT: /*left*/
-            case KEY_A: /*A*/
-                this.moveLeft = false;
-                break;
-
-            case KEY_DOWN: /*down*/
-            case KEY_S: /*S*/
-                this.moveBackward = false;
-                break;
-
-            case KEY_RIGHT: /*right*/
-            case KEY_D: /*D*/
-                this.moveRight = false;
-                break;
-            /*
-            case 82: //R
-                this.moveUp = true;
-                break;
-
-                case 70: //F
-                    this.moveDown = true;
+                case KEY_UP: /*up*/
+                case KEY_W: /*W*/
+                    this.moveForward = false;
                     break;
-                    */
 
-            case KEY_SHIFT: /*SHIFT*/
-                this.run = false;
-                break;
+                case KEY_LEFT: /*left*/
+                case KEY_A: /*A*/
+                    this.moveLeft = false;
+                    break;
 
-            case KEY_I:
+                case KEY_DOWN: /*down*/
+                case KEY_S: /*S*/
+                    this.moveBackward = false;
+                    break;
+
+                case KEY_RIGHT: /*right*/
+                case KEY_D: /*D*/
+                    this.moveRight = false;
+                    break;
+                /*
+                case 82: //R
+                    this.moveUp = true;
+                    break;
+
+                    case 70: //F
+                        this.moveDown = true;
+                        break;
+                        */
+
+                case KEY_SHIFT: /*SHIFT*/
+                    this.run = false;
+                    break;
+
+                case KEY_I:
 
 
-                this.ui.closeTabBoard();
-                break;
-            case KEY_O:
-                this.ui.closeMessageBoard();
+                    this.ui.closeTabBoard();
+                    break;
+                case KEY_O:
+                    this.ui.closeMessageBoard();
+                    break;
 
+            }
         }
 
     }

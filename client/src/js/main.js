@@ -79,6 +79,7 @@ function initRenderer() {
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
+    // renderer.setSize(instructions.width, instructions.height);
     renderer.shadowMapEnabled = true;
     renderer.shadowMapSoft = true;
     document.body.appendChild(renderer.domElement);
@@ -495,7 +496,8 @@ socket.on('init', data => {
 
 
 
-        player.model.visible = false;
+        // player.model.visible = false;
+        player.model.isSelf = true;
         scene.add(player.model);
         mouseController = new MouseController(player, scene, ui);
         keyController = new KeyController(player, scene, ui);
@@ -596,9 +598,9 @@ socket.on('hit', data => {
         if (hitter) {
             let hitDirection = player.directionFrom(hitter);
             console.log(hitDirection);
-            ui.hurt(hitDirection);
+            // ui.hurt(hitDirection);
             player.hp -= data.damage;
-            ui.setLife(player.hp);
+            // ui.setLife(player.hp);
             console.log(socket.id + ' left ' + player.hp + ' hp');
             if (player.hp <= 0) {
                 player.die(data.bodyPart, hitDirection);
@@ -614,7 +616,14 @@ socket.on('die', data => {
     Player.get(data.killed).die();
 
     //右上角显示杀敌信息
-    ui.printDeathMessage(Player.get(data.killer).name, Player.get(data.killed));
+    // ui.printDeathMessage(Player.get(data.killer).name, Player.get(data.killed));
+});
+
+socket.on('chat', data => {
+    let player = Player.get(data.socketid);
+    if (player) {
+        ui.printMessage(player.name + ": " + data.message);
+    }
 });
 
 socket.on('roundOver', data => {
@@ -622,23 +631,23 @@ socket.on('roundOver', data => {
     Player.terroristWins = data.terroristWins;
     Player.counterTerroristWins = data.counterTerroristWins;
     if (data.info === 'terrorist win') {
-         ui.terroristWin();
+         // ui.terroristWin();
     } else {
-        ui.counterTerroristWin()
+        // ui.counterTerroristWin()
     }
-    ui.setRed_remain(data.terroristWins);
-    ui.setBlue_remain(data.counterTerroristWins);
+    // ui.setRed_remain(data.terroristWins);
+    // ui.setBlue_remain(data.counterTerroristWins);
 });
 
 socket.on('resetAll', data => {
     Player.resetAll();
     player.model.visible = false;
-    ui.setLife(player.hp);
+    // ui.setLife(player.hp);
 });
 
 socket.on('timer', data => {
     console.log(data);
-   ui.setTime(Math.floor(data/60), data%60);
+   // ui.setTime(Math.floor(data/60), data%60);
 });
 socket.on('connect', function () {
     console.log('Connected');

@@ -9,63 +9,92 @@
             margin: 0;
             height: 100%;
         }
+
         canvas {
             display: block;
         }
+
         #blocker {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.0);
+            background-color: rgba(0, 0, 0, 0.0);
         }
+
         #instructions {
             width: 100%;
             height: 100%;
-            display: -webkit-box;
-            display: -moz-box;
-            display: box;
-            -webkit-box-orient: horizontal;
-            -moz-box-orient: horizontal;
-            box-orient: horizontal;
-            -webkit-box-pack: center;
-            -moz-box-pack: center;
-            box-pack: center;
-            -webkit-box-align: center;
-            -moz-box-align: center;
-            box-align: center;
+            /*display: -webkit-box;*/
+            /*display: -moz-box;*/
+            /*display: box;*/
+            /*-webkit-box-orient: horizontal;*/
+            /*-moz-box-orient: horizontal;*/
+            /*box-orient: horizontal;*/
+            /*-webkit-box-pack: center;*/
+            /*-moz-box-pack: center;*/
+            /*box-pack: center;*/
+            /*-webkit-box-align: center;*/
+            /*-moz-box-align: center;*/
+            /*box-align: center;*/
             color: #ffffff;
-            text-align: center;
+            /*text-align: center;*/
             cursor: pointer;
         }
-        .tableList{
+
+        .tableList {
             color: white;
         }
-        .playerInfo{
+
+        .playerInfo {
             height: 60px;
         }
-        #messages{
-            color:white;
-            font-size: 15px;
+
+        #messageBox {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            width: 300px;
 
         }
-        #messages p{
+
+
+        #messages {
+            color: white;
+            font-size: 15px;
             margin: 0 auto;
         }
-        .killMessage{
+
+        #messageInput {
+            width: 300px
+        }
+
+
+
+        #messages p {
+            margin: 0 0;
+            height: 20px;
+        }
+
+
+        .killMessage {
             margin: 0 auto;
         }
-        .killMessage p{
+
+        .killMessage p {
             display: flow;
-            margin:0 auto;
+            margin: 0 auto;
         }
-        #killMessageBox{
-            margin:0 auto;
-            color:white;
+
+        #killMessageBox {
+            margin: 0 auto;
+            color: white;
         }
-        img{
+
+        img {
             margin: 0;
         }
-        #table_out{
+
+        #table_out {
             margin: 0px;
         }
 
@@ -75,90 +104,97 @@
 <div id="blocker">
     <div id="instructions">
 
-    <table width="1000px" id="table_out" style="position:absolute">
-    <tbody>
-    <tr>
-        <td height="200px"  id="leftBox">
+        <!--<table width="1000px" id="table_out" style="position:absolute">-->
+            <!--<tbody>-->
+            <!--<tr>-->
+                <!--<td height="200px" id="leftBox">-->
 
 
-            <img id="MapContainer" height="178" width="162"/></td>
-        <td  id="scoreBoard" class="midBox" style="position:relative">
+                    <!--<img id="MapContainer" height="178" width="162"/></td>-->
+                <!--<td id="scoreBoard" class="midBox" style="position:relative">-->
 
-            <img height="164" width="599" id="scoreBoardBackground" style="position:relative"/>
-            <img height="100" width="300" id="win-image" style="position:absolute" />
+                    <!--<img height="164" width="599" id="scoreBoardBackground" style="position:relative"/>-->
+                    <!--<img height="100" width="300" id="win-image" style="position:absolute"/>-->
 
-            <p id="scoreRed" style="position:relative;bottom:160px;right:180px;">
+                    <!--<p id="scoreRed" style="position:relative;bottom:160px;right:180px;">-->
 
-                <img height="50" width="17" id="redRemain_0"/>
-                <img height="50" width="26" id="redRemain_1"/>
-            </p>
-            <p id="scoreBlue" style="position:relative;bottom:230px;left:180px;" >
-                <img height="50" width="17" id="blueRemain_0"/>
-                <img height="50" width="26" id="blueRemain_1"/>
-            </p>
-            <p id="time" style="position:absolute;left: 388px;bottom: 250px">
-                <img height="33" width="17" id="minute1"/>
-                <img height="33" width="17" id="minute2"/>
-                <img id="separator" height="28" width="13"/>
-                <img height="33" width="17" id="second1"/>
-                <img height="33" width="17" id="second2"/>
-            </p>
-            
+                        <!--<img height="50" width="17" id="redRemain_0"/>-->
+                        <!--<img height="50" width="26" id="redRemain_1"/>-->
+                    <!--</p>-->
+                    <!--<p id="scoreBlue" style="position:relative;bottom:230px;left:180px;">-->
+                        <!--<img height="50" width="17" id="blueRemain_0"/>-->
+                        <!--<img height="50" width="26" id="blueRemain_1"/>-->
+                    <!--</p>-->
+                    <!--<p id="time" style="position:absolute;left: 388px;bottom: 250px">-->
+                        <!--<img height="33" width="17" id="minute1"/>-->
+                        <!--<img height="33" width="17" id="minute2"/>-->
+                        <!--<img id="separator" height="28" width="13"/>-->
+                        <!--<img height="33" width="17" id="second1"/>-->
+                        <!--<img height="33" width="17" id="second2"/>-->
+                    <!--</p>-->
 
 
-        </td>
-        <td  class="rightBox" style="text-align: center;position: relative;">
-            <div id="killMessageBox" style="position: relative;">
-                <div class="killMessage" style="visibility: hidden">
-                    <p>111
-                        <img id="kill1" height="30" width="30"/>
-                        111</p>
-                </div>
-                <div class="killMessage" style="visibility: hidden">
-                    <p>jzf
-                        <img id="kill2" height="30" width="30"/>
-                        hahaha</p>
-                </div>
-                <div class="killMessage" style="visibility: hidden">
-                    <p>hahaha
-                        <img id="kill3" height="30" width="30"/>
-                        lalala</p>
-                </div>
-            </div>
+                <!--</td>-->
+                <!--<td class="rightBox" style="text-align: center;position: relative;">-->
+                    <!--<div id="killMessageBox" style="position: relative;">-->
+                        <!--<div class="killMessage" style="visibility: hidden">-->
+                            <!--<p>111-->
+                                <!--<img id="kill1" height="30" width="30"/>-->
+                                <!--111</p>-->
+                        <!--</div>-->
+                        <!--<div class="killMessage" style="visibility: hidden">-->
+                            <!--<p>jzf-->
+                                <!--<img id="kill2" height="30" width="30"/>-->
+                                <!--hahaha</p>-->
+                        <!--</div>-->
+                        <!--<div class="killMessage" style="visibility: hidden">-->
+                            <!--<p>hahaha-->
+                                <!--<img id="kill3" height="30" width="30"/>-->
+                                <!--lalala</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-        </td>
-    </tr>
-    <tr>
-        <td height="200px" >
+                <!--</td>-->
+            <!--</tr>-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td height="200px" >&ndash;&gt;-->
 
-        </td>
-        <td >
+            <!--&lt;!&ndash;</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td >&ndash;&gt;-->
 
-        </td>
-        <td >
+            <!--&lt;!&ndash;</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td >&ndash;&gt;-->
 
-        </td>
-    </tr>
-    <tr>
-        <td height="200px" >
-            <div id="HPBoard">
+            <!--&lt;!&ndash;</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--<tr>-->
+                <!--<td height="200px">-->
+                    <!--<div id="HPBoard">-->
 
-                <img id="hpimg" height="46" width="48.5"/>
-                <p id="HP">
-                    <img height="50" width="17" id="HP_0"/>
-                    <img height="50" width="26" id="HP_1"/>
-                    <img height="50" width="26" id="HP_2"/>
-                </p>
-            </div>
+                        <!--<img id="hpimg" height="46" width="48.5"/>-->
+                        <!--<p id="HP">-->
+                            <!--<img height="50" width="17" id="HP_0"/>-->
+                            <!--<img height="50" width="26" id="HP_1"/>-->
+                            <!--<img height="50" width="26" id="HP_2"/>-->
+                        <!--</p>-->
+                    <!--</div>-->
 
-        </td>
-        <td style="position: relative">
-            <div id="messageBox" style="text-align: center;position: relative;">
+                <!--</td>-->
 
-                <img id="messagesBoard" height="200" width="864" style="position:relative;top:15px"/>
-                <input type="text" name="message" id="messageInput"  style="position: relative; width:864px;height: 20px"/>
-            </div>
-            <div id="messages" style="position: absolute;bottom:35px;left: 30px">
+                <!--<td>-->
+
+                <!--</td>-->
+            <!--</tr>-->
+
+            <!--</tbody>-->
+        <!--</table>-->
+        <!--<div id="gun" style="position:absolute;right: 0;bottom: 0">-->
+
+        <!--<img id="gunimg" width="530" height="360"/>-->
+        <!--</div>-->
+
+        <div id="messageBox">
+            <div id="messages">
                 <p></p>
                 <p></p>
                 <p></p>
@@ -171,151 +207,144 @@
 
             </div>
 
-        </td>
-        <td >
 
-        </td>
-    </tr>
+                <!--<div id="messageBoard" height="200" width="864" style="position:relative;top:15px" ></div>-->
+            <input type="text" name="message" id="messageInput"/>
 
-    </tbody>
-</table>
-<div id="gun" style="position:absolute;right: 0;bottom: 0">
+        </div>
+        <div id="damage" style="position:absolute">
 
-    <img id="gunimg" width="530" height="360"/>
-</div>
-<div id="damage" style="position:absolute">
+            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_right"/>
+            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_left"/>
+            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_front"/>
+            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_back"/>
+        </div>
+        <!--<div style="position:absolute" id="post">-->
+            <!--<img id="postimg" height="20" width="20"/>-->
+        <!--</div>-->
+        <!--<div id="TabBoard" style="position:absolute">-->
+        <!--<img id="tabBoardimg" height="800" width="800" style="position:absolute" />-->
+        <!--<table style="position: absolute;text-align: center" width="700" class="tableList">-->
+        <!--<tr style="" >-->
+        <!--<td id="playerName" width="400" height="80"  bgcolor="aqua">玩家名</td>-->
+        <!--<td id="alive" width="100"bgcolor="red">存活</td>-->
+        <!--<td id="kill" width="100"  bgcolor="black">击杀</td>-->
+        <!--<td id="death" width="100"  bgcolor="#7fffd4">死亡</td>-->
+        <!--</tr>-->
+        <!--<tr id="player0" class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr id="player1"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr id="player2"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr id="player3"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr id="player4"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr class="playerInfo"></tr>-->
+        <!--<tr id="player5"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
 
-    <img height="500" width="500" style="position:absolute;opacity:0" id="damage_right"/>
-    <img height="500" width="500"style="position:absolute;opacity:0" id="damage_left"/>
-    <img height="500" width="500"style="position:absolute;opacity:0" id="damage_front"/>
-    <img height="500" width="500"style="position:absolute;opacity:0" id="damage_back"/>
-</div>
-<div style="position:absolute" id="post">
-    <img id="postimg" height="20" width="20"/>
-</div>
-<div id="TabBoard" style="position:absolute">
-    <img id="tabBoardimg" height="800" width="800" style="position:absolute" />
-    <table style="position: absolute;text-align: center" width="700" class="tableList">
-        <tr style="" >
-            <td id="playerName" width="400" height="80"  bgcolor="aqua">玩家名</td>
-            <td id="alive" width="100"bgcolor="red">存活</td>
-            <td id="kill" width="100"  bgcolor="black">击杀</td>
-            <td id="death" width="100"  bgcolor="#7fffd4">死亡</td>
-        </tr>
-        <tr id="player0" class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player1"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player2"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player3"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player4"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr class="playerInfo"></tr>
-        <tr id="player5"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <!--<tr id="player6"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr id="player7"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr id="player8"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr id="player9"class="playerInfo">-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--</tr>-->
 
-        <tr id="player6"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player7"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player8"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr id="player9"class="playerInfo">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <!--</table>-->
 
-    </table>
+        <!--&lt;!&ndash;-->
+        <!--<span style="font-size:40px">点击屏幕开始</span>-->
 
-        <!--
-        <span style="font-size:40px">点击屏幕开始</span>
+        <!--<br />-->
 
-        <br />
+        <!--<br />-->
 
-        <br />
-
-        (W, A, S, D = 移动, SPACE = 跳跃, MOUSE = 移动视角)
-        -->
+        <!--(W, A, S, D = 移动, SPACE = 跳跃, MOUSE = 移动视角)-->
+        <!--&ndash;&gt;-->
+        <!--</div>-->
     </div>
-</div>
 
 
-<!--
-<div id="blocker">
-    <div id="instructions">
+    <!--
+    <div id="blocker">
+        <div id="instructions">
 
-        <span style="font-size:40px">点击屏幕开始</span>
+            <span style="font-size:40px">点击屏幕开始</span>
 
-        <br />
+            <br />
 
-        <br />
+            <br />
 
-        (W, A, S, D = 移动, SPACE = 跳跃, MOUSE = 移动视角)
+            (W, A, S, D = 移动, SPACE = 跳跃, MOUSE = 移动视角)
+        </div>
     </div>
-</div>
--->
-<!--
-<script src="js/three/three.js"></script>
-<script src="js/stats/stats.js"></script>
+    -->
+    <!--
+    <script src="js/three/three.js"></script>
+    <script src="js/stats/stats.js"></script>
 
 
-<script src="js/loader/inflate.min.js"></script>
-<script src="js/loader/OBJLoader.js"></script>
-<script src="js/loader/MTLLoader.js"></script>
-<script src="js/loader/FBXLoader.js"></script>
-<script src="js/loader/ColladaLoader.js"></script>
+    <script src="js/loader/inflate.min.js"></script>
+    <script src="js/loader/OBJLoader.js"></script>
+    <script src="js/loader/MTLLoader.js"></script>
+    <script src="js/loader/FBXLoader.js"></script>
+    <script src="js/loader/ColladaLoader.js"></script>
 
 
-<script src="js/physijs/physi.js"></script>
+    <script src="js/physijs/physi.js"></script>
 
-<script src="js/controller/CollisionController.js"></script>
-<script src="js/controller/MouseController.js"></script>
-<script src="js/controller/KeyController.js"></script>
+    <script src="js/controller/CollisionController.js"></script>
+    <script src="js/controller/MouseController.js"></script>
+    <script src="js/controller/KeyController.js"></script>
 
-<script src="js/model/player.js"></script>
+    <script src="js/model/player.js"></script>
 
-<script src="js/main.js"></script>
--->
+    <script src="js/main.js"></script>
+    -->
 </div>
 </body>
 </html>

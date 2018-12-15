@@ -45,14 +45,16 @@ export class CollisionController {
                 let ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize(), 0, RADIUS);
                 // 检测射线与多个物体的相交情况
                 collisionResults = ray.intersectObjects(scene.children, true);
+                // players不参与碰撞检测
+                collisionResults = CollisionController.removePlayersFromIntersectObjects(collisionResults);
                 // 如果返回结果不为空，且交点与射线起点的距离小于物体中心至顶点的距离，则发生了碰撞
                 if (collisionResults.length > 0 && collisionResults[0].distance < RADIUS) {
 
                     let adjustVector = collisionResults[0].face.normal.applyMatrix4(collisionResults[0].object.matrixWorld).normalize();
                     let adjustDistance = RADIUS - collisionResults[0].distance;
-
                     srcObject.position.x = originPoint.x += adjustVector.x * (adjustDistance);  // crash 是一个标记变量
                     srcObject.position.z = originPoint.z += adjustVector.z * (adjustDistance);  // crash 是一个标记变量
+
                 }
             }
         }
@@ -73,8 +75,12 @@ export class CollisionController {
 
 
         collisionResults = downRaycaster.intersectObjects(scene.children, true);
+        // player 不参与碰撞检测
+        collisionResults = CollisionController.removePlayersFromIntersectObjects(collisionResults);
+
         keyController.inAir = collisionResults.length <= 0;
         if (!keyController.inAir && !keyController.jump) {
+
             keyController.ySpeed = 0;
             let adjustVector = collisionResults[0].face.normal.applyMatrix4(collisionResults[0].object.matrixWorld).normalize();
             let adjustDistance = (HEIGHT/2-collisionResults[0].distance) * adjustVector.y;
@@ -87,14 +93,29 @@ export class CollisionController {
          * 检测并调整顶部碰撞
          */
 
+
         if (keyController.inAir || keyController.jump) {
             collisionResults = upRaycaster.intersectObjects(scene.children, true);
+            // player不参与碰撞检测
+            collisionResults = CollisionController.removePlayersFromIntersectObjects(collisionResults);
             if (collisionResults.length > 0) {
                 keyController.ySpeed = -keyController.ySpeed;
             }
         }
 
 
+    }
+
+    static removePlayersFromIntersectObjects(collisionResults) {
+        let newCollisionResults = [];
+        for (let i = 0; i < collisionResults.length; i++) {
+            let parent = collisionResults[i].object;
+            for (;parent != null && parent.kind !== "player";parent = parent.parent){}
+            if (parent == null) {
+                newCollisionResults.push(collisionResults[i]);
+            }
+        }
+        return newCollisionResults;
     }
 
 

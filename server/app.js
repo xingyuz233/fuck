@@ -109,8 +109,13 @@ io.on('connection', function (socket) {
         if (Player.getLiveTerrorists().length === 0) {
             counterTerroristWin();
         }
+    });
 
-
+    socket.on('chat', data => {
+        console.log('Player ' + data.socketid + ' send a message: ' + data.message);
+        if (Player.get(data.socketid)) {
+            io.emit('chat', data);
+        }
     });
 
     socket.on('setBomb', data => {
@@ -123,7 +128,9 @@ io.on('connection', function (socket) {
     socket.on('defuseBomb', data => {
         console.log('bomb has been defused');
         counterTerroristWin();
-    })
+    });
+
+
 });
 
 function explode() {
