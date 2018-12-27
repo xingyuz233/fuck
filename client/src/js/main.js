@@ -43,7 +43,7 @@ let ui;
 
 let port = 3000;
 console.log("connect port "+port);
-const connectionUrl = "http://localhost:"+port;
+const connectionUrl = "http://120.79.227.127:"+port;
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
@@ -56,7 +56,7 @@ initScene();
 initCamera();
 initLight();
 //initGround();
-//initSky();
+initSky();
 initGameMap();
 initController();
 
@@ -125,14 +125,15 @@ function initCamera() {
 function initLight() {
 
 
-    //light = new THREE.PointLight(0xffffff, new THREE.Vector3(0,10,0), 0, 1000);
-    light = new THREE.AmbientLight(0xffffff);
+    // let light1 = new THREE.PointLight(0xffffff, new THREE.Vector3(0,100,0), 0, 300);
+    let light2 = new THREE.AmbientLight(0xffffff);
     //light.position.set(0, 0.5, 1).normalize();
     //light.castShadow = true;
     //scene.add(light);
     //light = new THREE.DirectionalLight(0xffffff);
     //light.position.set(0, 0.5, 1).normalize();
-    scene.add(light);
+    // scene.add(light1);
+    scene.add(light2);
 }
 
 /*
@@ -270,16 +271,16 @@ function initSky() {
     // Skybox
     let textureLoader = new THREE.TextureLoader();
     let materials = [
-        new THREE.MeshBasicMaterial({map: textureLoader.load('models/skybox/px.jpg')}), // right
-        new THREE.MeshBasicMaterial({map: textureLoader.load('models/skybox/nx.jpg')}), // left
-        new THREE.MeshBasicMaterial({map: textureLoader.load('models/skybox/py.jpg')}), // top
-        new THREE.MeshBasicMaterial({map: textureLoader.load('models/skybox/ny.jpg')}), // bottom
-        new THREE.MeshBasicMaterial({map: textureLoader.load('models/skybox/pz.jpg')}), // back
-        new THREE.MeshBasicMaterial({map: textureLoader.load('models/skybox/nz.jpg')})  // front
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/px.jpg')}), // right
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/nx.jpg')}), // left
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/py.jpg')}), // top
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/ny.jpg')}), // bottom
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/pz.jpg')}), // back
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/nz.jpg')})  // front
     ];
     let mesh = new THREE.Mesh(new THREE.BoxGeometry(10000, 10000, 10000, 7, 7, 7), new THREE.MultiMaterial(materials));
     mesh.position.y = 1000;
-    mesh.scale.y = -1;
+    // mesh.scale.y = -1;
     scene.add(mesh);
 }
 
@@ -310,7 +311,7 @@ function initGameMap() {
     });
     */
     gameMap = new GameMap();
-    gameMap.showDust2(scene);
+    gameMap.showSleepyCity(scene);
 
     /*
     var loader = new THREE.ColladaLoader();
@@ -604,6 +605,14 @@ socket.on('hit', data => {
             console.log(socket.id + ' left ' + player.hp + ' hp');
             if (player.hp <= 0) {
                 player.die(data.bodyPart, hitDirection);
+
+                keyController.setDeadView();
+                mouseController.setDeadView();
+                setTimeout(()=>{
+                    keyController.setLiveView();
+                    mouseController.setLiveView();
+                },3000);
+
                 console.log(socket.id + ' was killed by ' + data.socketid);
                 socket.emit('die', {'socketid': data.socketid, 'bodyPart':data.bodyPart, 'hitDirection':hitDirection });
             }
@@ -614,6 +623,7 @@ socket.on('hit', data => {
 socket.on('die', data => {
     Player.get(data.killer).kill();
     Player.get(data.killed).die();
+
 
     //右上角显示杀敌信息
     // ui.printDeathMessage(Player.get(data.killer).name, Player.get(data.killed));

@@ -55,6 +55,9 @@ export class CollisionController {
                     srcObject.position.x = originPoint.x += adjustVector.x * (adjustDistance);  // crash 是一个标记变量
                     srcObject.position.z = originPoint.z += adjustVector.z * (adjustDistance);  // crash 是一个标记变量
 
+                    // console.log("srcObject:",srcObject.position);
+                    console.log("adjustVector", adjustVector);
+
                 }
             }
         }
@@ -111,6 +114,18 @@ export class CollisionController {
         for (let i = 0; i < collisionResults.length; i++) {
             let parent = collisionResults[i].object;
             for (;parent != null && parent.kind !== "player";parent = parent.parent){}
+            if (parent == null) {
+                newCollisionResults.push(collisionResults[i]);
+            }
+        }
+        return newCollisionResults;
+    }
+
+    static removeSelfPlayerFromIntersectObjects(collisionResults) {
+        let newCollisionResults = [];
+        for (let i = 0; i < collisionResults.length; i++) {
+            let parent = collisionResults[i].object;
+            for (;parent != null && parent.isSelf == null;parent = parent.parent){}
             if (parent == null) {
                 newCollisionResults.push(collisionResults[i]);
             }

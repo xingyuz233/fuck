@@ -102,13 +102,13 @@ io.on('connection', function (socket) {
             Player.get(socketid).die();
         }
 
-        if (Player.getLiveCounterTerrorists().length === 0) {
-            terroristWin();
-        }
-        // terrorist-win
-        if (Player.getLiveTerrorists().length === 0) {
-            counterTerroristWin();
-        }
+        // if (Player.getLiveCounterTerrorists().length === 0) {
+        //     terroristWin();
+        // }
+        // // terrorist-win
+        // if (Player.getLiveTerrorists().length === 0) {
+        //     counterTerroristWin();
+        // }
     });
 
     socket.on('chat', data => {
@@ -154,7 +154,7 @@ function terroristWin() {
         counterTerroristWins: Player.counterTerroristWins,
         info: 'terrorist win'
     });
-    setTimeout(resetAll, 3000);
+    // setTimeout(resetAll, 3000);
 }
 
 function counterTerroristWin() {
@@ -174,7 +174,7 @@ function counterTerroristWin() {
         counterTerroristWins: Player.counterTerroristWins,
         info: 'counter-terrorist win'
     });
-    setTimeout(resetAll, 3000);
+    // setTimeout(resetAll, 3000);
 }
 
 function resetAll() {

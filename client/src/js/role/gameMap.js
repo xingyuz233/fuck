@@ -2,6 +2,8 @@ import * as THREE from "three";
 import * as MTLLoader from "../loader/MTLLoader";
 import * as OBJLoader from "../loader/OBJLoader";
 
+import GLTFLoader from "three-gltf-loader";
+
 import {Player} from "./player";
 
 //let FBXLoader = require('three-fbxloader-offical');
@@ -132,6 +134,72 @@ export class GameMap {
         //     scene.add(object);
         // });
 
+    }
+    showForest(scene) {
+        if (this.model) {
+            scene.remove(this.model);
+            this.setModel(null);
+
+        }
+
+        this.setTerroristArea(50, 100, 0, 50, 0);
+        //this.setTerroristArea(150,150,0,0,400);
+        this.setCounterTerroristArea(90, 140, -760, -680, -45);
+        this.setAsiteArea(255,300,-755,-725);
+        this.setBsiteArea(194,255,-832,-765);
+
+        const loader = new GLTFLoader();
+        loader.load(
+            "static/models/maps/forest/scene.gltf",
+            ( gltf ) => {
+                gltf.scene.scale.set(0.5,0.5,0.5);
+                scene.add(gltf.scene);
+            }
+        )
+    }
+    showAlienForest(scene) {
+        if (this.model) {
+            scene.remove(this.model);
+            this.setModel(null);
+
+        }
+
+        this.setTerroristArea(0, 50, 0, 50, 20);
+        //this.setTerroristArea(150,150,0,0,400);
+        this.setCounterTerroristArea(90, 140, -760, -680, -45);
+        this.setAsiteArea(255,300,-755,-725);
+        this.setBsiteArea(194,255,-832,-765);
+
+        const loader = new GLTFLoader();
+        loader.load(
+            "static/models/maps/alien_forest/scene.gltf",
+            ( gltf ) => {
+                gltf.scene.scale.set(50,50,50);
+                scene.add(gltf.scene);
+            }
+        )
+    }
+    showSleepyCity(scene) {
+        if (this.model) {
+            scene.remove(this.model);
+            this.setModel(null);
+
+        }
+
+        this.setTerroristArea(0, 50, 0, 50, 200);
+        //this.setTerroristArea(150,150,0,0,400);
+        this.setCounterTerroristArea(50, 100, 0, 50, 200);
+        this.setAsiteArea(255,300,-755,-725);
+        this.setBsiteArea(194,255,-832,-765);
+
+        const loader = new GLTFLoader();
+        loader.load(
+            "static/models/maps/sleepy_city/scene.gltf",
+            ( gltf ) => {
+                gltf.scene.scale.set(8,8,8);
+                scene.add(gltf.scene);
+            }
+        )
     }
 
 }

@@ -57,7 +57,7 @@ export class KeyController {
         this.keyStatus = 0;
 
         this.bind();
-        this.setSelfView();
+        this.setLiveView();
     }
 
 
@@ -203,12 +203,12 @@ export class KeyController {
         }
     }
 
-    setSelfView() {
+    setLiveView() {
         window.addEventListener('keydown', this.onKeyDown, false);
         window.addEventListener('keyup', this.onKeyUp, false);
     }
 
-    setOtherView() {
+    setDeadView() {
         window.removeEventListener('keydown', this.onKeyDown, false);
         window.removeEventListener('keyup', this.onKeyUp, false);
     }

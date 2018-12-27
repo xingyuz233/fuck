@@ -2,7 +2,6 @@ import * as THREE from "three";
 let FBXLoader = require('three-fbxloader-offical');
 
 
-
 export class Weapon {
     constructor() {
         this.damage = 0;
@@ -65,7 +64,7 @@ export class Weapon {
 
     //初始化所有枪械模型sample。
     static initialWeaponModels() {
-        let promiseList = [Rifle.initialRifleModels()];
+        let promiseList = [Rifle.initialRifleModels(), Knife.initialKnifeModels()];
         Promise.all(promiseList).then(results => {
             return new Promise((resolve, reject) => {
                 resolve("ok")
@@ -134,7 +133,42 @@ export class Knife extends Weapon {
     constructor() {
         super();
     }
+    showKnife() {
+        this.damage = 30;
+        this.firingRate = 10;
+        this.recoil = 5;
+        this.clipSize = 30;
+        this.model = Knife.knifeModelList['knife'].clone();
+    }
+    static initialKnifeModels() {
+        let promiseList = [
+            Knife.initialKnifeModel()
+        ];
+
+        Promise.all(promiseList).then(results => {
+            return new Promise((resolve, reject) => {
+                resolve("ok")
+            });
+        });
+    }
+
+    static initialKnifeModel() {
+        return new Promise((resolve, reject) => {
+            let loader = new FBXLoader();
+            loader.load('static/models/weapons/knife/knife.fbx', function(object) {
+                console.log(object);
+                object.scale.set(3,3,3);
+                object.rotation.y = -Math.PI*2/3;
+                object.rotation.z = -Math.PI/2;
+                object.position.set(-5,-30,0);
+                Knife.knifeModelList['knife'] = object;
+                resolve(object);
+            });
+        });
+
+    }
 }
 
 Weapon.weaponsInScene = [];
 Rifle.rifleModelList = {};
+Knife.knifeModelList = {};

@@ -175,7 +175,7 @@ export class Player {
         pitchObject.rotation.y += Math.PI;
         console.log(pitchObject);
 
-        let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
+        let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000000);
         //camera.lookAt(0,0,1);
         //camera.rotation.y += Math.PI;
         pitchObject.add(camera);
@@ -184,6 +184,7 @@ export class Player {
         object.kind = "player";
         this.camera = camera;
         this.pitchObject = pitchObject;
+        this.buyKnife();
     }
 
     initialModelPosition(position) {
@@ -205,6 +206,17 @@ export class Player {
         rifle.model.parent = this.model.righthand;
     }
 
+    equipKnife(knife) {
+        if (this.knife) {
+            this.knife = null;
+            this.model.righthand.children.splice(this.model.righthand.children.indexOf(this.knife), 1);
+        }
+        this.knife = knife;
+        this.model.righthand.children.push(knife.model);
+        knife.model.parent = this.model.righthand;
+
+    }
+
     buyRifle(rifleName) {
         let rifle = new Rifle();
         switch(rifleName) {
@@ -214,6 +226,13 @@ export class Player {
         }
         if (rifle.model) {
             this.equipRifle(rifle);
+        }
+    }
+    buyKnife() {
+        let knife = new Knife();
+        knife.showKnife();
+        if (knife.model) {
+            this.equipKnife(knife);
         }
     }
 
@@ -254,6 +273,12 @@ export class Player {
                 this.playDeathAction("DeathFromTheFront");
             }
         }
+
+        let scope = this;
+        setTimeout(()=>{
+            scope.reset();
+        }, 3000);
+
 
 
         //this.reset();
@@ -370,7 +395,6 @@ export class Player {
             this.model.deathActionList[action].play();
             setTimeout(function() {
                 scope.model.deathActionList[action].stop();
-                scope.model.visible = false;
             },3000);
         }
 

@@ -1,7 +1,9 @@
 
 import * as THREE from "three";
 import {Player} from "../role/player";
+import {CollisionController} from "./CollisionController";
 
+const RADIUS = 2;
 export class MouseController {
 
     constructor(player, scene, ui) {
@@ -34,7 +36,7 @@ export class MouseController {
         this.ui = ui;
 
         this.bind();
-        this.setSelfView();
+        this.setLiveView();
     }
 
 
@@ -91,7 +93,7 @@ export class MouseController {
 
     hit() {
 
-        const MAX_HIT_DISTANCE = 1000;
+        const MAX_HIT_DISTANCE = 100;
         let scene = this.scene;
         let camera = this.player.camera;
 
@@ -102,7 +104,8 @@ export class MouseController {
         console.log(this.player.model.position);
         let hitRaycaster = new THREE.Raycaster(srcPos, camera.getWorldDirection(new THREE.Vector3(0,0,0)), 0, MAX_HIT_DISTANCE);
         let collisionResults = hitRaycaster.intersectObjects(scene.children, true);
-        let damage = 5;
+        let damage = 100;
+        collisionResults = CollisionController.removeSelfPlayerFromIntersectObjects(collisionResults);
         console.log(collisionResults);
         if (collisionResults.length > 0) {
             for (let i = 0; i < collisionResults.length; i++) {
@@ -144,24 +147,23 @@ export class MouseController {
             }
         }
 
-        this.ui.hit();
 
     }
 
     update() {
-            // 观战的这个人刚刚死亡
-            if (this.status < this.viewPlayer.status) {
-                if (this.player === this.viewPlayer) {
-                    this.setOtherView();
-                }
-                this.changeView();
-                this.status = this.viewPlayer.status;
-            }
-            // 自己复活
-            if (this.player.status < this.status) {
-                this.setSelfView();
-                this.status = this.player.status;
-            }
+            // // 观战的这个人刚刚死亡
+            // if (this.status < this.viewPlayer.status) {
+            //     if (this.player === this.viewPlayer) {
+            //         this.setOtherView();
+            //     }
+            //     this.changeView();
+            //     this.status = this.viewPlayer.status;
+            // }
+            // // 自己复活
+            // if (this.player.status < this.status) {
+            //     this.setSelfView();
+            //     this.status = this.player.status;
+            // }
 
             // 自己活着
             if (this.player.status === 0) {
@@ -184,7 +186,7 @@ export class MouseController {
         this.onMouseMove = bind(this, this.onMouseMove);
         this.onMouseUp = bind(this, this.onMouseUp);
 
-        this.changeView = bind(this, this.changeView);
+        // this.changeView = bind(this, this.changeView);
 
         function bind(scope, fn) {
             return function () {
@@ -194,22 +196,22 @@ export class MouseController {
     }
 
 
-    setSelfView() {
+    setLiveView() {
         this.viewPlayer = this.player;
         this.scene.camera = this.viewPlayer.camera;
         this.isSelfView = true;
-        window.removeEventListener('mousedown', this.changeView, false);
+        // window.removeEventListener('mousedown', this.changeView, false);
         window.addEventListener('mousemove', this.onMouseMove, false);
         window.addEventListener('mousedown', this.onMouseDown, false);
         window.addEventListener('mouseup', this.onMouseUp, false);
     }
 
-    setOtherView() {
+    setDeadView() {
         this.isSelfView = false;
-        window.removeEventListener('mousemove', this.onMouseMove, false);
+        // window.removeEventListener('mousemove', this.onMouseMove, false);
         window.removeEventListener('mousedown', this.onMouseDown, false);
         window.removeEventListener('mouseup', this.onMouseUp, false);
-        window.addEventListener('mousedown', this.changeView, false);
+        // window.addEventListener('mousedown', this.changeView, false);
     }
 
     changeView() {
