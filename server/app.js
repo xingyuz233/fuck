@@ -179,22 +179,22 @@ function counterTerroristWin() {
 
 function resetAll() {
     io.emit('resetAll');
-    let roundTime = 150000;
-    let interval = 1000;
-    roundTimeSetter = setInterval(function () {
-        roundTime -= interval;
-        io.emit("timer", roundTime / 1000);
-
-        if (roundTime % 10000 === 0) {
-            console.log(roundTime / 1000 + " second left");
-            if (roundTime <= 0) {
-                clearInterval(roundTimeSetter);
-                roundTimeout();
-            }
-        }
-
-
-    }, interval);
+    // let roundTime = 150000;
+    // let interval = 1000;
+    // roundTimeSetter = setInterval(function () {
+    //     roundTime -= interval;
+    //     io.emit("timer", roundTime / 1000);
+    //
+    //     if (roundTime % 10000 === 0) {
+    //         console.log(roundTime / 1000 + " second left");
+    //         if (roundTime <= 0) {
+    //             clearInterval(roundTimeSetter);
+    //             roundTimeout();
+    //         }
+    //     }
+    //
+    //
+    // }, interval);
     Player.resetAll();
 }
 

@@ -188,11 +188,11 @@ export class Player {
 
     initialModelPosition(position) {
         this.model.position.set(0,10,0);
-        // if (position) {
-        //     this.model.position.set(position.x, position.y, position.z);
-        // } else {
-        //     this.model.position.set(this.bornPosition.x, this.bornPosition.y, this.bornPosition.z);
-        // }
+        if (position) {
+            this.model.position.set(position.x, position.y, position.z);
+        } else {
+            this.model.position.set(this.bornPosition.x, this.bornPosition.y, this.bornPosition.z);
+        }
     }
 
     equipRifle(rifle) {
