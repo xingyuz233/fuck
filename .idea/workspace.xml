@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30876ac1-6a64-476a-8c4a-692c11b46a1c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/js/controller/KeyController.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/controller/KeyController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/controller/MouseController.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/controller/MouseController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/js/controller/MouseController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="160" column="13" lean-forward="true" selection-start-line="160" selection-start-column="13" selection-end-line="160" selection-end-column="13" />
+            <state relative-caret-position="97">
+              <caret line="153" column="21" lean-forward="true" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
               <folding>
                 <element signature="n#!!block;n#getObject#0;n#MouseController#0" />
               </folding>
@@ -196,11 +195,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="79" column="16" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+            <state relative-caret-position="272">
+              <caret line="614" column="5" lean-forward="true" selection-start-line="614" selection-start-column="5" selection-end-line="614" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -245,8 +244,8 @@
       <find>equip</find>
       <find>nife</find>
       <find>setOt</find>
-      <find>setSe</find>
       <find>setOther</find>
+      <find>setSe</find>
     </findStrings>
     <replaceStrings>
       <replace>static/models/maps/dust2/textures</replace>
@@ -310,9 +309,9 @@
         <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/client/src/js/role/player.js" />
         <option value="$PROJECT_DIR$/client/src/js/role/weapon.js" />
-        <option value="$PROJECT_DIR$/client/src/js/main.js" />
         <option value="$PROJECT_DIR$/client/src/js/controller/KeyController.js" />
         <option value="$PROJECT_DIR$/client/src/js/controller/MouseController.js" />
+        <option value="$PROJECT_DIR$/client/src/js/main.js" />
       </list>
     </option>
   </component>
@@ -676,12 +675,12 @@
       <workItem from="1545046458616" duration="1377000" />
       <workItem from="1545745287683" duration="13135000" />
       <workItem from="1545914793853" duration="4918000" />
-      <workItem from="1545925164271" duration="11546000" />
+      <workItem from="1545925164271" duration="11696000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="615032000" />
+    <option name="totallyTimeSpent" value="615182000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -991,13 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="79" column="16" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/js/ui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
@@ -1027,11 +1019,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/js/controller/MouseController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="160" column="13" lean-forward="true" selection-start-line="160" selection-start-column="13" selection-end-line="160" selection-end-column="13" />
+        <state relative-caret-position="97">
+          <caret line="153" column="21" lean-forward="true" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
           <folding>
             <element signature="n#!!block;n#getObject#0;n#MouseController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="614" column="5" lean-forward="true" selection-start-line="614" selection-start-column="5" selection-end-line="614" selection-end-column="5" />
         </state>
       </provider>
     </entry>

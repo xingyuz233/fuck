@@ -606,12 +606,7 @@ socket.on('hit', data => {
             if (player.hp <= 0) {
                 player.die(data.bodyPart, hitDirection);
 
-                keyController.setDeadView();
-                mouseController.setDeadView();
-                setTimeout(()=>{
-                    keyController.setLiveView();
-                    mouseController.setLiveView();
-                },3000);
+
 
                 console.log(socket.id + ' was killed by ' + data.socketid);
                 socket.emit('die', {'socketid': data.socketid, 'bodyPart':data.bodyPart, 'hitDirection':hitDirection });
