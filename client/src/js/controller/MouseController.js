@@ -151,19 +151,15 @@ export class MouseController {
     }
 
     update() {
-            // // 观战的这个人刚刚死亡
-            // if (this.status < this.viewPlayer.status) {
-            //     if (this.player === this.viewPlayer) {
-            //         this.setOtherView();
-            //     }
-            //     this.changeView();
-            //     this.status = this.viewPlayer.status;
-            // }
-            // // 自己复活
-            // if (this.player.status < this.status) {
-            //     this.setSelfView();
-            //     this.status = this.player.status;
-            // }
+            // 自己刚刚死亡
+            if (this.status < this.player.status) {
+                this.setDeadView();
+            }
+            // 自己复活
+            if (this.player.status < this.status) {
+                this.setLiveView();
+            }
+            this.status = this.player.status;
 
             // 自己活着
             if (this.player.status === 0) {

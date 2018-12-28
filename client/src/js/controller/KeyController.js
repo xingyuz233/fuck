@@ -217,11 +217,11 @@ export class KeyController {
     update(delta) {
         //挂了
         if (this.player.status > this.status) {
-            this.setOtherView();
+            this.setDeadView();
         }
         //复活
         else if (this.player.status < this.status) {
-            this.setSelfView();
+            this.setLiveView();
         }
         this.status = this.player.status;
 
