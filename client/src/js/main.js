@@ -16,6 +16,7 @@ import {Weapon, Rifle, Knife} from "./role/weapon";
 import {GameMap} from "./role/gameMap";
 
 import {UI} from "./ui";
+import {Crosshair} from "./role/crosshair";
 
 let clock;
 
@@ -43,7 +44,8 @@ let ui;
 
 let port = 3000;
 console.log("connect port "+port);
-const connectionUrl = "http://120.79.227.127:"+port;
+// const connectionUrl = "http://120.79.227.127:"+port;
+const connectionUrl = "http://localhost:"+port;
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
@@ -57,10 +59,12 @@ initCamera();
 initLight();
 //initGround();
 initSky();
+
 initGameMap();
 initController();
 
 initPointerLock();
+initWindowResize();
 //animate();
 
 
@@ -271,18 +275,18 @@ function initSky() {
     // Skybox
     let textureLoader = new THREE.TextureLoader();
     let materials = [
-        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/px.jpg')}), // right
-        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/nx.jpg')}), // left
-        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/py.jpg')}), // top
-        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/ny.jpg')}), // bottom
-        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/pz.jpg')}), // back
-        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/nz.jpg')})  // front
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/px.jpg'), side: THREE.BackSide}), // right
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/nx.jpg'), side: THREE.BackSide}), // left
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/py.jpg'), side: THREE.BackSide}), // top
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/ny.jpg'), side: THREE.BackSide}), // bottom
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/pz.jpg'), side: THREE.BackSide}), // back
+        new THREE.MeshBasicMaterial({map: textureLoader.load('../static/models/skybox/nz.jpg'), side: THREE.BackSide})  // front
     ];
-    let mesh = new THREE.Mesh(new THREE.BoxGeometry(10000, 10000, 10000, 7, 7, 7), new THREE.MultiMaterial(materials));
-    mesh.position.y = 1000;
+    let mesh = new THREE.Mesh(new THREE.BoxGeometry(5000, 5000, 5000), new THREE.MultiMaterial(materials));
     // mesh.scale.y = -1;
     scene.add(mesh);
 }
+
 
 function initGameMap() {
     /*
@@ -311,7 +315,7 @@ function initGameMap() {
     });
     */
     gameMap = new GameMap();
-    gameMap.showSleepyCity(scene);
+    gameMap.showDust2(scene);
 
     /*
     var loader = new THREE.ColladaLoader();
@@ -438,6 +442,8 @@ function initPointerLock() {
         instructions.innerHTML = '你的浏览器不支持相关操作，请更换浏览器';
     }
 
+
+
     function launchFullScreen(element) {
         if (element.requestFullscreen) {
             element.requestFullscreen();
@@ -451,6 +457,17 @@ function initPointerLock() {
         else if (element.msRequestFullscreen) {
             element.msRequestFullscreen();
         }
+    }
+}
+
+
+function initWindowResize() {
+
+    window.addEventListener("resize", onWindowResize);
+    function onWindowResize() {
+        scene.camera.aspect = window.innerWidth / window.innerHeight;
+        scene.camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
     }
 }
 

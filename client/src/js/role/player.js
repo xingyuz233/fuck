@@ -3,6 +3,7 @@
 import * as THREE from "three";
 let FBXLoader = require('three-fbxloader-offical');
 import {Weapon, Rifle, Knife} from "./weapon";
+import {Crosshair} from "./crosshair";
 
 export class Player {
     constructor(socketid, name, camp, index) {
@@ -163,6 +164,7 @@ export class Player {
 
 
 
+
     initialModelView() {
         let object = this.model;
         //Player.initialActions(object);
@@ -184,7 +186,21 @@ export class Player {
         object.kind = "player";
         this.camera = camera;
         this.pitchObject = pitchObject;
-        this.buyKnife();
+        // this.buyRifle("m4a1");
+
+        initCrosshair(this.camera);
+
+        function initCrosshair(camera) {
+            let crosshair = new Crosshair();
+            camera.add(crosshair);
+            // Place it in the center
+            let crosshairPercentX = 50;
+            let crosshairPercentY = 50;
+            let crosshairPositionX = (crosshairPercentX / 100) * 2 - 1;
+            let crosshairPositionY = (crosshairPercentY / 100) * 2 - 1;
+            crosshair.position.set((crosshairPercentX / 100) * 2 - 1, (crosshairPercentY / 100) * 2 - 1, -0.3);
+            console.log(crosshair);
+        }
     }
 
     initialModelPosition(position) {

@@ -61,7 +61,7 @@ io.on('connection', function (socket) {
         if (Player.get(data.socketid)) {
             console.log("Player " + data.socketid + " bought a rifle " + data.rifle);
             Player.get(data.socketid).rifle = data.rifle;
-            socket.broadcast.emit('buyRifle', data);
+            io.emit('buyRifle', data);
         }
     });
     /*

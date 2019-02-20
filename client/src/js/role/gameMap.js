@@ -101,7 +101,7 @@ export class GameMap {
             scene.remove(this.model);
             this.setModel(null);
         }
-        this.setTerroristArea(-100, -50, -160, -100, 0);
+        this.setTerroristArea(-100, -50, -160, -100, 20);
         //this.setTerroristArea(150,150,0,0,400);
         this.setCounterTerroristArea(90, 140, -760, -680, -45);
         this.setAsiteArea(255,300,-755,-725);
