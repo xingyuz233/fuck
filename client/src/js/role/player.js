@@ -187,10 +187,11 @@ export class Player {
         this.camera = camera;
         this.pitchObject = pitchObject;
         // this.buyRifle("m4a1");
+        this.buyRifle('m4a1');
 
         initCrosshair(this.camera);
 
-        function initCrosshair(camera) {
+        function initCrosshair() {
             let crosshair = new Crosshair();
             camera.add(crosshair);
             // Place it in the center
@@ -199,6 +200,7 @@ export class Player {
             let crosshairPositionX = (crosshairPercentX / 100) * 2 - 1;
             let crosshairPositionY = (crosshairPercentY / 100) * 2 - 1;
             crosshair.position.set((crosshairPercentX / 100) * 2 - 1, (crosshairPercentY / 100) * 2 - 1, -0.3);
+            // crosshair.position.set(camera.position);
             console.log(crosshair);
         }
     }
@@ -217,7 +219,7 @@ export class Player {
             this.rifle = null;
             this.model.righthand.children.splice(this.model.righthand.children.indexOf(this.rifle), 1);
         }
-        this.rifle = rifle;
+        // this.rifle = rifle;
         this.model.righthand.children.push(rifle.model);
         rifle.model.parent = this.model.righthand;
     }
@@ -293,6 +295,7 @@ export class Player {
         let scope = this;
         setTimeout(()=>{
             scope.reset();
+            scope.hp = 100;
         }, 3000);
 
 

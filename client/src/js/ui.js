@@ -17,7 +17,7 @@ import png_HP from '../../static/image/HP.png';
 import png_kill from '../../static/image/kill.png';
 import png_MapContainer from '../../static/image/MapContainer.png';
 import png_MessageBoard from '../../static/image/MessageBoard.png';
-import png_post from '../../static/image/post.png';
+import png_post from '../../static/image/green-crosshair-png-4.png';
 import png_ScoreBoard from '../../static/image/ScoreBoard.png';
 import png_separator from '../../static/image/separator.png';
 import png_TabBoard from '../../static/image/TabBoard.png';
@@ -26,24 +26,25 @@ import png_counterterrorist_win from '../../static/image/counter-terrorist-win.p
 
 export class UI {
     constructor () {
-        // this.life=100;
+        this.life=100;
         // this.redRemain=5;
         // this.blueRemain=5;
-        const WINDOW_WIDTH=window.screen.availWidth-10;
-        const WINDOW_HEIGHT=window.screen.availHeight-10;
-        // this.HP_0=document.getElementById("HP_0");
-        // this.HP_1=document.getElementById("HP_1");
-        // this.HP_2=document.getElementById("HP_2");
+        const WINDOW_WIDTH=window.screen.availWidth;
+        const WINDOW_HEIGHT=window.screen.availHeight;
+        this.HP_0=document.getElementById("HP_0");
+        this.HP_1=document.getElementById("HP_1");
+        this.HP_2=document.getElementById("HP_2");
         // this.TabBoard=document.getElementById("TabBoard");
         // this.TabBoard.style.left=""+(WINDOW_WIDTH-800)/2+"px";
         // this.TabBoard.style.top=""+(WINDOW_HEIGHT-800)/2+"px";
         // this.closeTabBoard();
-        this.Damage=document.getElementById("damage");
-        this.Damage.style.left=""+(WINDOW_WIDTH-500)/2+"px";
-        this.Damage.style.top=""+(WINDOW_HEIGHT-500)/2+"px";
+        // this.Damage=document.getElementById("damage");
+        // this.Damage.style.left=""+(WINDOW_WIDTH-500)/2+"px";
+        // this.Damage.style.top=""+(WINDOW_HEIGHT-500)/2+"px";
+
         // this.Post=document.getElementById("post");
-        // this.Post.style.left=(WINDOW_WIDTH/2+5)+"px";
-        // this.Post.style.top=(WINDOW_HEIGHT-30)/2+"px";
+        // this.Post.style.left=(WINDOW_WIDTH-40)/2+"px";
+        // this.Post.style.top=(WINDOW_HEIGHT-40)/2+"px";
         // this.red_0=document.getElementById("redRemain_0");
         // this.red_1=document.getElementById("redRemain_1");
         // this.blue_0=document.getElementById("blueRemain_0");
@@ -88,10 +89,10 @@ export class UI {
         // this.midBox.style.width="60%";
         // this.midBox.style.textAlign="center";
         //
-        // this.HPBoard=document.getElementById("HPBoard");
-        // this.HPBoard.style.textAlign="center";
-        // this.HP=document.getElementById("HP");
-        // this.HP.style.textAlign="center";
+        this.HPBoard=document.getElementById("HPBoard");
+        this.HPBoard.style.textAlign="center";
+        this.HP=document.getElementById("HP");
+        this.HP.style.textAlign="center";
 
         //插入图片。。。
         // document.getElementById('scoreBoardBackground').src = png_ScoreBoard;
@@ -100,17 +101,17 @@ export class UI {
         // document.getElementById('kill1').src = png_kill;
         // document.getElementById('kill2').src = png_kill;
         // document.getElementById('kill3').src = png_kill;
-        // document.getElementById('hpimg').src = png_HP;
-        // document.getElementById('HP_0').src = png_1;
-        // document.getElementById('HP_1').src = png_0;
-        // document.getElementById('HP_2').src = png_0;
+        document.getElementById('hpimg').src = png_HP;
+        document.getElementById('HP_0').src = png_1;
+        document.getElementById('HP_1').src = png_0;
+        document.getElementById('HP_2').src = png_0;
         // document.getElementById('messageBoard').src = png_MessageBoard;
 
         document.getElementById('damage_right').src = png_damage_right;
         document.getElementById('damage_left').src = png_damage_left;
         document.getElementById('damage_front').src = png_damage_front;
         document.getElementById('damage_back').src = png_damage_back;
-        // document.getElementById('postimg').src = png_post;
+        document.getElementById('postimg').src = png_post;
         // document.getElementById('tabBoardimg').src = png_TabBoard;
         //
         // document.getElementById('redRemain_0').src = png_0;
@@ -133,17 +134,18 @@ export class UI {
 
     }
 
-    // setLife(lifepoint) {
-    //     let hundred=Math.floor(lifepoint/100);
-    //     let ten=Math.floor((lifepoint-hundred*100)/10);
-    //     let one=lifepoint-hundred*100-ten*10;
-    //     this.setNum(this.HP_0,hundred,2);
-    //     this.setNum(this.HP_1,ten,2);
-    //     this.setNum(this.HP_2,one,2);
-    //     this.life=lifepoint;
-    //
-    //
-    // }
+    setLife(lifepoint) {
+        let hundred=Math.floor(lifepoint/100);
+        let ten=Math.floor((lifepoint-hundred*100)/10);
+        let one=lifepoint-hundred*100-ten*10;
+        this.setNum(this.HP_0,hundred,2);
+        this.setNum(this.HP_1,ten,2);
+        this.setNum(this.HP_2,one,2);
+        this.life=lifepoint;
+
+
+    }
+
     //
     // setRed_remain(red_remain){
     //     let ten=Math.floor(red_remain/10);
@@ -260,70 +262,70 @@ export class UI {
     //     }
     //
     // }
-    // hurt(direction) {
-    //     let damage;
-    //     switch (direction){
-    //         case "left":
-    //             damage=this.damage_left;
-    //             break;
-    //         case "right":
-    //             damage=this.damage_right;
-    //             break;
-    //         case "front":
-    //             damage=this.damage_front;
-    //             break;
-    //         case "back":
-    //             damage=this.damage_back;
-    //         //console.log("back");
-    //     }
-    //     //console.log(damage);
-    //     damage.style.opacity=1;
-    //     let timer=null;
-    //     clearInterval(timer);
-    //     let alpha=100;
-    //     timer=setInterval(function()
-    //     {
-    //         let speed=-5;    //定义运动的速度
-    //         if (alpha===0)  //若传入的的透明度等于本来的透明度就清除定时器
-    //         {
-    //             clearInterval(timer);
-    //         }
-    //         else
-    //         {
-    //             alpha=alpha+speed;
-    //             //damage.style.filter='alpha(opacity:"+alpha+")';
-    //             damage.style.opacity=alpha/100;
-    //         }
-    //     },30)
-    //
-    //
-    // }
-    //
-    // setNum(object,num,d) {
-    //     let width=this.getNumWidth(num);
-    //
-    //     object.setAttribute("src",this.getNumPng(num));
-    //     object.setAttribute("width",Math.floor(width/d)+"");
-    //     object.setAttribute("height",Math.floor(100/d+""));
-    //
-    //
-    // }
-    // getNumPng(num) {
-    //     switch(num) {
-    //         case 0:return png_0;
-    //         case 1:return png_1;
-    //         case 2:return png_2;
-    //         case 3:return png_3;
-    //         case 4:return png_4;
-    //         case 5:return png_5;
-    //         case 6:return png_6;
-    //         case 7:return png_7;
-    //         case 8:return png_8;
-    //         case 9:return png_9;
-    //         default:return png_0;
-    //
-    //     }
-    // }
+    hurt(direction) {
+        let damage;
+        switch (direction){
+            case "left":
+                damage=this.damage_left;
+                break;
+            case "right":
+                damage=this.damage_right;
+                break;
+            case "front":
+                damage=this.damage_front;
+                break;
+            case "back":
+                damage=this.damage_back;
+            //console.log("back");
+        }
+        //console.log(damage);
+        damage.style.opacity=1;
+        let timer=null;
+        clearInterval(timer);
+        let alpha=100;
+        timer=setInterval(function()
+        {
+            let speed=-5;    //定义运动的速度
+            if (alpha===0)  //若传入的的透明度等于本来的透明度就清除定时器
+            {
+                clearInterval(timer);
+            }
+            else
+            {
+                alpha=alpha+speed;
+                //damage.style.filter='alpha(opacity:"+alpha+")';
+                damage.style.opacity=alpha/100;
+            }
+        },30)
+
+
+    }
+
+    setNum(object,num,d) {
+        // let width=this.getNumWidth(num);
+
+        object.setAttribute("src",this.getNumPng(num));
+        // object.setAttribute("width",Math.floor(width/d)+"");
+        // object.setAttribute("height",Math.floor(100/d+""));
+
+
+    }
+    getNumPng(num) {
+        switch(num) {
+            case 0:return png_0;
+            case 1:return png_1;
+            case 2:return png_2;
+            case 3:return png_3;
+            case 4:return png_4;
+            case 5:return png_5;
+            case 6:return png_6;
+            case 7:return png_7;
+            case 8:return png_8;
+            case 9:return png_9;
+            default:return png_0;
+
+        }
+    }
     // getNumWidth(num) {
     //     switch (num){
     //         case 0:return 52;

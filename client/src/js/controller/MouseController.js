@@ -93,7 +93,7 @@ export class MouseController {
 
     hit() {
 
-        const MAX_HIT_DISTANCE = 100;
+        const MAX_HIT_DISTANCE = 1000;
         let scene = this.scene;
         let camera = this.player.camera;
 
@@ -104,7 +104,7 @@ export class MouseController {
         console.log(this.player.model.position);
         let hitRaycaster = new THREE.Raycaster(srcPos, camera.getWorldDirection(new THREE.Vector3(0,0,0)), 0, MAX_HIT_DISTANCE);
         let collisionResults = hitRaycaster.intersectObjects(scene.children, true);
-        let damage = 100;
+        let damage = 5;
         collisionResults = CollisionController.removeSelfPlayerFromIntersectObjects(collisionResults);
         console.log(collisionResults);
         if (collisionResults.length > 0) {

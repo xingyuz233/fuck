@@ -616,9 +616,9 @@ socket.on('hit', data => {
         if (hitter) {
             let hitDirection = player.directionFrom(hitter);
             console.log(hitDirection);
-            // ui.hurt(hitDirection);
+            ui.hurt(hitDirection);
             player.hp -= data.damage;
-            // ui.setLife(player.hp);
+            ui.setLife(player.hp);
             console.log(socket.id + ' left ' + player.hp + ' hp');
             if (player.hp <= 0) {
                 player.die(data.bodyPart, hitDirection);

@@ -98,6 +98,41 @@
             margin: 0px;
         }
 
+        #HPBoard {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+        #postimg {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+        }
+
+        #hpimg {
+            height: 30px;
+        }
+        #HP_0, #HP_1, #HP_2 {
+            height: 60px;
+        }
+
+        #damage_front, #damage_back, #damage_left, #damage_right {
+            max-height: 150px;
+            max-width: 150px;
+            position: fixed;
+            opacity: 0;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+
+        }
     </style>
 </head>
 <body>
@@ -214,14 +249,21 @@
         </div>
         <div id="damage" style="position:absolute">
 
-            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_right"/>
-            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_left"/>
-            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_front"/>
-            <img height="500" width="500" style="position:absolute;opacity:0" id="damage_back"/>
+            <img id="damage_right"/>
+            <img id="damage_left"/>
+            <img id="damage_front"/>
+            <img id="damage_back"/>
         </div>
-        <!--<div style="position:absolute" id="post">-->
-            <!--<img id="postimg" height="20" width="20"/>-->
-        <!--</div>-->
+        <div id="HPBoard">
+
+            <img id="hpimg"/>
+            <p id="HP">
+                <img id="HP_0"/>
+                <img id="HP_1"/>
+                <img id="HP_2"/>
+            </p>
+        </div>
+            <img id="postimg" />
         <!--<div id="TabBoard" style="position:absolute">-->
         <!--<img id="tabBoardimg" height="800" width="800" style="position:absolute" />-->
         <!--<table style="position: absolute;text-align: center" width="700" class="tableList">-->
