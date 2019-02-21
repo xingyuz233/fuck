@@ -45,7 +45,7 @@ let ui;
 let port = 3000;
 console.log("connect port "+port);
 // const connectionUrl = "http://120.79.227.127:"+port;
-const connectionUrl = "ec2-52-82-11-7.cn-northwest-1.compute.amazonaws.com.cn"+port;
+const connectionUrl = "ec2-52-82-11-7.cn-northwest-1.compute.amazonaws.com.cn:"+port;
 let socket = io.connect(connectionUrl);
 let playerMap = new Map();
 
